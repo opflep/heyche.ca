@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hey Che — Coming Soon</title>
-    <meta name="description" content="Hey Che — Something delicious is on the way. Stay tuned!">
-    <meta property="og:title" content="Hey Che — Coming Soon">
+    <title>Che — Coming Soon</title>
+    <meta name="description" content="Che — Something delicious is on the way. Stay tuned!">
+    <meta property="og:title" content="Che — Coming Soon">
     <meta property="og:description" content="Something delicious is on the way. Stay tuned!">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://heyche.ca">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after {
             margin: 0;
@@ -20,12 +20,10 @@
         }
 
         :root {
-            --beige: #f5f0e8;
-            --beige-light: #faf7f2;
-            --burgundy: #722f37;
-            --burgundy-dark: #5a1a22;
-            --rose: #c9a3a3;
-            --rose-light: #e0d0d0;
+            --maroon: #6b1520;
+            --maroon-light: #8a2030;
+            --grey: #999;
+            --grey-light: #ccc;
         }
 
         body {
@@ -33,81 +31,53 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--beige);
+            background-color: #fff;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--burgundy);
-            overflow: hidden;
-        }
-
-        /* Subtle background pattern */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(114, 47, 55, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(201, 163, 163, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 50% 80%, rgba(114, 47, 55, 0.03) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 0;
+            color: var(--maroon);
         }
 
         .container {
             text-align: center;
             padding: 2rem;
-            position: relative;
-            z-index: 1;
             animation: fadeInUp 1s ease-out;
         }
 
-        .brand {
-            font-family: 'Playfair Display', Georgia, serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 800;
-            color: var(--burgundy-dark);
-            letter-spacing: 0.08em;
-            margin-bottom: 0.5rem;
+        .logo {
+            margin-bottom: 2rem;
         }
 
-        .divider {
-            width: 60px;
-            height: 2px;
-            background: var(--rose);
-            margin: 1.5rem auto;
-            animation: expandWidth 1.2s ease-out 0.3s both;
+        .logo img {
+            width: clamp(160px, 30vw, 260px);
+            height: auto;
         }
 
         .tagline {
-            font-size: clamp(1rem, 3vw, 1.4rem);
+            font-size: clamp(0.85rem, 2.5vw, 1.1rem);
             font-weight: 300;
-            color: var(--burgundy);
-            letter-spacing: 0.25em;
+            color: var(--grey);
+            letter-spacing: 0.3em;
             text-transform: uppercase;
-            margin-bottom: 2.5rem;
-            animation: fadeIn 1s ease-out 0.5s both;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out 0.4s both;
         }
 
         .contact {
-            animation: fadeIn 1s ease-out 0.8s both;
+            animation: fadeIn 1s ease-out 0.7s both;
         }
 
         .contact a {
-            color: var(--burgundy);
+            color: var(--maroon);
             text-decoration: none;
             font-weight: 400;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 0.03em;
-            border-bottom: 1px solid var(--rose-light);
+            border-bottom: 1px solid var(--grey-light);
             padding-bottom: 2px;
             transition: border-color 0.3s ease, color 0.3s ease;
         }
 
         .contact a:hover {
-            border-color: var(--burgundy);
-            color: var(--burgundy-dark);
+            border-color: var(--maroon);
         }
 
         .socials {
@@ -115,23 +85,23 @@
             display: flex;
             justify-content: center;
             gap: 1.8rem;
-            animation: fadeIn 1s ease-out 1s both;
+            animation: fadeIn 1s ease-out 0.9s both;
         }
 
         .socials a {
-            color: var(--rose);
+            color: var(--grey-light);
             transition: color 0.3s ease, transform 0.3s ease;
             display: inline-flex;
         }
 
         .socials a:hover {
-            color: var(--burgundy);
+            color: var(--maroon);
             transform: translateY(-2px);
         }
 
         .socials svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
         }
 
@@ -151,32 +121,18 @@
             to { opacity: 1; }
         }
 
-        @keyframes expandWidth {
-            from {
-                width: 0;
-                opacity: 0;
-            }
-            to {
-                width: 60px;
-                opacity: 1;
-            }
-        }
-
-        /* Mobile adjustments */
         @media (max-width: 480px) {
             .container {
                 padding: 1.5rem;
-            }
-            .socials {
-                gap: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 class="brand">CHE</h1>
-        <div class="divider"></div>
+        <div class="logo">
+            <img src="logo.svg" alt="Che">
+        </div>
         <p class="tagline">Coming Soon</p>
 
         <div class="contact">

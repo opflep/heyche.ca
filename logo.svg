@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Horizontal bar over the h -->
+  <line x1="175" y1="62" x2="305" y2="62" stroke="#6b1520" stroke-width="3.5" stroke-linecap="square"/>
+  <!-- che text -->
+  <text x="200" y="148" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="120" font-weight="700" fill="#6b1520" text-anchor="middle" letter-spacing="2">che</text>
+</svg>
