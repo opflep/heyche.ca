@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chè Menu — Static Screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: #1a1a1a;
+    color: #333;
+}
+
+/* ===== SCREEN SELECTOR NAV ===== */
+.screen-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(30,30,30,0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.screen-nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    letter-spacing: 0.5px;
+}
+.screen-nav a:hover, .screen-nav a.active {
+    color: #fff;
+    background: rgba(122,0,0,0.6);
+}
+.screen-nav .label {
+    color: #666;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    align-self: center;
+    margin-right: 8px;
+}
+
+/* ===== MONITOR FRAME ===== */
+.monitors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 70px 20px 40px;
+    gap: 60px;
+}
+.monitor-frame {
+    /* 9:16 aspect ratio - simulating vertical 32" monitor */
+    width: 540px;
+    height: 960px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 0 2px rgba(255,255,255,0.05);
+    position: relative;
+}
+.monitor-label {
+    color: #666;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+/* ===== STYLE A: WARM PARCHMENT ===== */
+.screen-parchment {
+    background: #f0e8d8;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+}
+.screen-parchment .menu-header {
+    text-align: center;
+    padding: 32px 20px 16px;
+    border-bottom: 1px solid rgba(122,0,0,0.15);
+}
+.screen-parchment .menu-header .logo {
+    height: 40px;
+    margin-bottom: 8px;
+}
+.screen-parchment .menu-header .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #8b7760;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+.screen-parchment .menu-header .screen-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #7a0000;
+    font-weight: 600;
+    margin-top: 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.screen-parchment .products-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 24px;
+}
+.screen-parchment .product-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+}
+.screen-parchment .product-row:not(:last-child) {
+    border-bottom: 1px solid rgba(139,119,96,0.12);
+}
+.screen-parchment .product-img {
+    width: 160px;
+    height: 200px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.screen-parchment .product-info {
+    flex: 1;
+}
+.screen-parchment .product-info .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #3a2a1a;
+    font-style: italic;
+    margin-bottom: 2px;
+}
+.screen-parchment .product-info .viet-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: #7a0000;
+    font-style: italic;
+    margin-bottom: 6px;
+}
+.screen-parchment .product-info .desc {
+    font-size: 11.5px;
+    color: #6b5b4a;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+.screen-parchment .product-info .ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.screen-parchment .product-info .ingr {
+    font-size: 9.5px;
+    padding: 2px 8px;
+    background: rgba(255,255,255,0.4);
+    border: 0.5px solid rgba(139,119,96,0.2);
+    border-radius: 10px;
+    color: #7a6a55;
+    font-weight: 500;
+}
+.screen-parchment .menu-footer {
+    text-align: center;
+    padding: 12px;
+    border-top: 1px solid rgba(122,0,0,0.1);
+    font-size: 10px;
+    color: #a09080;
+    letter-spacing: 1px;
+}
+
+/* ===== STYLE B: DARK EDITORIAL ===== */
+.screen-dark {
+    background: #0d0d0d;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.screen-dark .menu-header {
+    text-align: center;
+    padding: 28px 20px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.screen-dark .menu-header .logo {
+    height: 36px;
+    filter: brightness(0) invert(1);
+    margin-bottom: 6px;
+}
+.screen-dark .menu-header .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #c9a96e;
+    font-style: italic;
+    letter-spacing: 1.5px;
+}
+.screen-dark .menu-header .screen-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #c9a96e;
+    font-weight: 600;
+    margin-top: 4px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.screen-dark .products-grid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+}
+.screen-dark .product-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 0;
+}
+.screen-dark .product-row:not(:last-child) {
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.screen-dark .product-row:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.screen-dark .product-row:nth-child(even) .product-info {
+    text-align: right;
+}
+.screen-dark .product-row:nth-child(even) .ingredients {
+    justify-content: flex-end;
+}
+.screen-dark .product-img {
+    width: 155px;
+    height: 195px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 20px rgba(201,169,110,0.15));
+}
+.screen-dark .product-info .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #f5f0e8;
+    font-style: italic;
+    margin-bottom: 2px;
+}
+.screen-dark .product-info .viet-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #c9a96e;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+.screen-dark .product-info .desc {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.5;
+    margin-bottom: 7px;
+}
+.screen-dark .product-info .ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.screen-dark .product-info .ingr {
+    font-size: 9px;
+    padding: 2px 8px;
+    background: rgba(201,169,110,0.1);
+    border: 0.5px solid rgba(201,169,110,0.2);
+    border-radius: 10px;
+    color: #c9a96e;
+    font-weight: 500;
+}
+.screen-dark .menu-footer {
+    text-align: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 1px;
+}
+
+/* ===== STYLE C: FRESH GREEN ===== */
+.screen-fresh {
+    background: linear-gradient(180deg, #f7f9f4 0%, #eef3e6 100%);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.screen-fresh .menu-header {
+    text-align: center;
+    padding: 28px 20px 14px;
+    border-bottom: 2px solid rgba(76,120,60,0.15);
+}
+.screen-fresh .menu-header .logo {
+    height: 38px;
+    margin-bottom: 6px;
+}
+.screen-fresh .menu-header .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: #5a7a4a;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+.screen-fresh .menu-header .screen-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #3a5a2a;
+    font-weight: 600;
+    margin-top: 4px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.screen-fresh .products-grid {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 8px 16px;
+    gap: 8px;
+}
+.screen-fresh .product-card {
+    background: rgba(255,255,255,0.6);
+    border-radius: 16px;
+    border: 1px solid rgba(76,120,60,0.1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+}
+.screen-fresh .product-img {
+    width: 150px;
+    height: 185px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+.screen-fresh .product-info .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: #2a3a1a;
+    margin-bottom: 1px;
+}
+.screen-fresh .product-info .viet-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: #5a7a4a;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+.screen-fresh .product-info .desc {
+    font-size: 11px;
+    color: #5a6a4a;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+.screen-fresh .product-info .ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.screen-fresh .product-info .ingr {
+    font-size: 9px;
+    padding: 2px 8px;
+    background: rgba(76,120,60,0.08);
+    border: 0.5px solid rgba(76,120,60,0.2);
+    border-radius: 10px;
+    color: #4a6a3a;
+    font-weight: 500;
+}
+.screen-fresh .menu-footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+    color: #8a9a7a;
+    letter-spacing: 1px;
+}
+
+/* ===== FULLSCREEN MODE ===== */
+.fullscreen-view {
+    display: none;
+}
+.fullscreen-view.active {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: #000;
+}
+.fullscreen-view .screen-content {
+    width: 100%;
+    height: 100%;
+}
+.fullscreen-close {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 3000;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+</style>
+</head>
+<body>
+
+<nav class="screen-nav">
+    <span class="label">Screens:</span>
+    <a href="#parchment" class="active">☰ Parchment</a>
+    <a href="#dark">☰ Dark</a>
+    <a href="#fresh">☰ Fresh</a>
+    <a href="#all-side">☰ All 3 Side-by-Side</a>
+</nav>
+
+<div class="monitors" id="content">
+
+<!-- ================================== -->
+<!-- STYLE A: PARCHMENT — 3 SCREENS     -->
+<!-- ================================== -->
+<div id="parchment">
+    <div class="monitor-label">Parchment Style — Screen 1 of 3: Signatures</div>
+    <div class="monitor-frame">
+        <div class="screen-parchment">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">Our Signatures</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-row">
+                    <img src="items/products/card_everything_che.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Everything Chè</div>
+                        <div class="viet-name">Chè Thập Cẩm</div>
+                        <div class="desc">A balanced symphony of all our finest treasures, with our unique mix of ingredients.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Mung Beans</span>
+                            <span class="ingr">Lotus Seeds</span>
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Aiyu Jelly</span>
+                            <span class="ingr">Tapioca</span>
+                            <span class="ingr">Pomegranate</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_house_special.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">House Special</div>
+                        <div class="viet-name">Chè Đặc Biệt</div>
+                        <div class="desc">Our signature combination, crafted with care, with our unique mix of textures and flavors.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Pandan Mung Bean</span>
+                            <span class="ingr">Red Kidney Beans</span>
+                            <span class="ingr">Tapioca Pearls</span>
+                            <span class="ingr">Bánh Lọt</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_fresh_che.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The Fresh Chè</div>
+                        <div class="viet-name">Chè Trái Cây</div>
+                        <div class="desc">A vibrant medley from nature's orchard, with colorful fruits.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Mango</span>
+                            <span class="ingr">Dragon Fruit</span>
+                            <span class="ingr">Lychee</span>
+                            <span class="ingr">Pomelo</span>
+                            <span class="ingr">Aiyu Jelly</span>
+                            <span class="ingr">Coconut Water</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="monitor-label">Parchment Style — Screen 2 of 3: Classics</div>
+    <div class="monitor-frame">
+        <div class="screen-parchment">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">The Classics</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-row">
+                    <img src="items/products/card_three_layer.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The 3-Layer Chè</div>
+                        <div class="viet-name">Chè Ba Màu</div>
+                        <div class="desc">A classic trio, vibrant and comforting with smooth texture and sweetened mung bean paste.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Red Kidney Beans</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Mung Bean Paste</span>
+                            <span class="ingr">Crushed Ice</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_go_to.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The Go-To</div>
+                        <div class="viet-name">Hạt Lựu Sương Sáo Bánh Lọt</div>
+                        <div class="desc">A reliable choice for any dessert craving, and a classic combination.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Pomegranate Pearls</span>
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Coconut Milk</span>
+                            <span class="ingr">Simple Syrup</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_mango_coco.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Mango Coco</div>
+                        <div class="viet-name">Chè Xoài Cốt Dừa</div>
+                        <div class="desc">A sweet mango puree and mango with the fragrance of coconut.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Diced Ripe Mango</span>
+                            <span class="ingr">Sago Pearls</span>
+                            <span class="ingr">Pandan Essence</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="monitor-label">Parchment Style — Screen 3 of 3: Specialty</div>
+    <div class="monitor-frame">
+        <div class="screen-parchment">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">Specialty</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-row">
+                    <img src="items/products/card_ube_coco.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Ube Coco</div>
+                        <div class="viet-name">Chè Khoai Lang Tím Cốt Dừa</div>
+                        <div class="desc">The rich, earthy purply passion of ube and rich coconut milk.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Ube Mash</span>
+                            <span class="ingr">Ube Chunks</span>
+                            <span class="ingr">Sago Pearls</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_fresh_taro.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Fresh Taro Coco</div>
+                        <div class="viet-name">Chè Khoai Môn Bánh Lọt</div>
+                        <div class="desc">Creamy taro with delicate pandan noodles and rich coconut milk.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Taro Chunks</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Roasted Sesame</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_not_too_sweet.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Not Too Sweet</div>
+                        <div class="viet-name">Chè Sương Sáo Hạt Lựu</div>
+                        <div class="desc">Perfectly balanced, not overly indulgent, and a dark/red contrast.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Pomegranate Pearls</span>
+                            <span class="ingr">Crushed Ice</span>
+                            <span class="ingr">Simple Syrup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================== -->
+<!-- STYLE B: DARK — 3 SCREENS          -->
+<!-- ================================== -->
+<div id="dark">
+    <div class="monitor-label">Dark Editorial — Screen 1 of 3: Signatures</div>
+    <div class="monitor-frame">
+        <div class="screen-dark">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">Our Signatures</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-row">
+                    <img src="items/products/card_everything_che.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Everything Chè</div>
+                        <div class="viet-name">Chè Thập Cẩm</div>
+                        <div class="desc">A balanced symphony of all our finest treasures, with our unique mix of ingredients.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Mung Beans</span>
+                            <span class="ingr">Lotus Seeds</span>
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Aiyu Jelly</span>
+                            <span class="ingr">Tapioca</span>
+                            <span class="ingr">Pomegranate</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_house_special.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">House Special</div>
+                        <div class="viet-name">Chè Đặc Biệt</div>
+                        <div class="desc">Our signature combination, crafted with care, with our unique mix of textures and flavors.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Pandan Mung Bean</span>
+                            <span class="ingr">Red Kidney Beans</span>
+                            <span class="ingr">Tapioca Pearls</span>
+                            <span class="ingr">Bánh Lọt</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_fresh_che.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The Fresh Chè</div>
+                        <div class="viet-name">Chè Trái Cây</div>
+                        <div class="desc">A vibrant medley from nature's orchard, with colorful fruits.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Mango</span>
+                            <span class="ingr">Dragon Fruit</span>
+                            <span class="ingr">Lychee</span>
+                            <span class="ingr">Pomelo</span>
+                            <span class="ingr">Aiyu Jelly</span>
+                            <span class="ingr">Coconut Water</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="monitor-label">Dark Editorial — Screen 2 of 3: Classics</div>
+    <div class="monitor-frame">
+        <div class="screen-dark">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">The Classics</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-row">
+                    <img src="items/products/card_three_layer.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The 3-Layer Chè</div>
+                        <div class="viet-name">Chè Ba Màu</div>
+                        <div class="desc">A classic trio, vibrant and comforting with smooth texture and sweetened mung bean paste.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Red Kidney Beans</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Mung Bean Paste</span>
+                            <span class="ingr">Crushed Ice</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_go_to.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The Go-To</div>
+                        <div class="viet-name">Hạt Lựu Sương Sáo Bánh Lọt</div>
+                        <div class="desc">A reliable choice for any dessert craving, and a classic combination.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Pomegranate Pearls</span>
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Coconut Milk</span>
+                            <span class="ingr">Simple Syrup</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_mango_coco.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Mango Coco</div>
+                        <div class="viet-name">Chè Xoài Cốt Dừa</div>
+                        <div class="desc">A sweet mango puree and mango with the fragrance of coconut.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Diced Ripe Mango</span>
+                            <span class="ingr">Sago Pearls</span>
+                            <span class="ingr">Pandan Essence</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="monitor-label">Dark Editorial — Screen 3 of 3: Specialty</div>
+    <div class="monitor-frame">
+        <div class="screen-dark">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">Specialty</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-row">
+                    <img src="items/products/card_ube_coco.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Ube Coco</div>
+                        <div class="viet-name">Chè Khoai Lang Tím Cốt Dừa</div>
+                        <div class="desc">The rich, earthy purply passion of ube and rich coconut milk.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Ube Mash</span>
+                            <span class="ingr">Ube Chunks</span>
+                            <span class="ingr">Sago Pearls</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_fresh_taro.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Fresh Taro Coco</div>
+                        <div class="viet-name">Chè Khoai Môn Bánh Lọt</div>
+                        <div class="desc">Creamy taro with delicate pandan noodles and rich coconut milk.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Taro Chunks</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Roasted Sesame</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-row">
+                    <img src="items/products/card_not_too_sweet.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Not Too Sweet</div>
+                        <div class="viet-name">Chè Sương Sáo Hạt Lựu</div>
+                        <div class="desc">Perfectly balanced, not overly indulgent, and a dark/red contrast.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Pomegranate Pearls</span>
+                            <span class="ingr">Crushed Ice</span>
+                            <span class="ingr">Simple Syrup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================== -->
+<!-- STYLE C: FRESH GREEN — 3 SCREENS   -->
+<!-- ================================== -->
+<div id="fresh">
+    <div class="monitor-label">Fresh Green — Screen 1 of 3: Signatures</div>
+    <div class="monitor-frame">
+        <div class="screen-fresh">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">Our Signatures</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="items/products/card_everything_che.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Everything Chè</div>
+                        <div class="viet-name">Chè Thập Cẩm</div>
+                        <div class="desc">A balanced symphony of all our finest treasures, with our unique mix of ingredients.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Mung Beans</span>
+                            <span class="ingr">Lotus Seeds</span>
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Tapioca</span>
+                            <span class="ingr">Pomegranate</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="items/products/card_house_special.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">House Special</div>
+                        <div class="viet-name">Chè Đặc Biệt</div>
+                        <div class="desc">Our signature combination, crafted with care, with our unique mix of textures and flavors.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Pandan Mung Bean</span>
+                            <span class="ingr">Red Kidney Beans</span>
+                            <span class="ingr">Tapioca Pearls</span>
+                            <span class="ingr">Bánh Lọt</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="items/products/card_fresh_che.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The Fresh Chè</div>
+                        <div class="viet-name">Chè Trái Cây</div>
+                        <div class="desc">A vibrant medley from nature's orchard, with colorful fruits.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Mango</span>
+                            <span class="ingr">Dragon Fruit</span>
+                            <span class="ingr">Lychee</span>
+                            <span class="ingr">Pomelo</span>
+                            <span class="ingr">Coconut Water</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="monitor-label">Fresh Green — Screen 2 of 3: Classics</div>
+    <div class="monitor-frame">
+        <div class="screen-fresh">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">The Classics</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="items/products/card_three_layer.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The 3-Layer Chè</div>
+                        <div class="viet-name">Chè Ba Màu</div>
+                        <div class="desc">A classic trio, vibrant and comforting with smooth texture and sweetened mung bean paste.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Red Kidney Beans</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Mung Bean Paste</span>
+                            <span class="ingr">Crushed Ice</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="items/products/card_go_to.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">The Go-To</div>
+                        <div class="viet-name">Hạt Lựu Sương Sáo Bánh Lọt</div>
+                        <div class="desc">A reliable choice for any dessert craving, and a classic combination.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Pomegranate Pearls</span>
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Coconut Milk</span>
+                            <span class="ingr">Simple Syrup</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="items/products/card_mango_coco.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Mango Coco</div>
+                        <div class="viet-name">Chè Xoài Cốt Dừa</div>
+                        <div class="desc">A sweet mango puree and mango with the fragrance of coconut.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Diced Ripe Mango</span>
+                            <span class="ingr">Sago Pearls</span>
+                            <span class="ingr">Pandan Essence</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+
+    <div style="height:40px"></div>
+    <div class="monitor-label">Fresh Green — Screen 3 of 3: Specialty</div>
+    <div class="monitor-frame">
+        <div class="screen-fresh">
+            <div class="menu-header">
+                <img src="items/che-logo.svg" class="logo" alt="Chè">
+                <div class="subtitle">Vietnamese Dessert Drinks</div>
+                <div class="screen-title">Specialty</div>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="items/products/card_ube_coco.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Ube Coco</div>
+                        <div class="viet-name">Chè Khoai Lang Tím Cốt Dừa</div>
+                        <div class="desc">The rich, earthy purply passion of ube and rich coconut milk.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Ube Mash</span>
+                            <span class="ingr">Ube Chunks</span>
+                            <span class="ingr">Sago Pearls</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="items/products/card_fresh_taro.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Fresh Taro Coco</div>
+                        <div class="viet-name">Chè Khoai Môn Bánh Lọt</div>
+                        <div class="desc">Creamy taro with delicate pandan noodles and rich coconut milk.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Taro Chunks</span>
+                            <span class="ingr">Pandan Bánh Lọt</span>
+                            <span class="ingr">Roasted Sesame</span>
+                            <span class="ingr">Coconut Milk</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="items/products/card_not_too_sweet.png" class="product-img" alt="">
+                    <div class="product-info">
+                        <div class="name">Not Too Sweet</div>
+                        <div class="viet-name">Chè Sương Sáo Hạt Lựu</div>
+                        <div class="desc">Perfectly balanced, not overly indulgent, and a dark/red contrast.</div>
+                        <div class="ingredients">
+                            <span class="ingr">Grass Jelly</span>
+                            <span class="ingr">Pomegranate Pearls</span>
+                            <span class="ingr">Crushed Ice</span>
+                            <span class="ingr">Simple Syrup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+        </div>
+    </div>
+</div>
+
+<!-- ================================== -->
+<!-- SIDE BY SIDE: 3 MONITORS            -->
+<!-- ================================== -->
+<div id="all-side" style="padding-top: 20px;">
+    <div class="monitor-label">All 3 Monitors Side-by-Side (Parchment)</div>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:60px;">
+        <div style="width:320px; height:569px; border-radius:8px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+            <div class="screen-parchment" style="transform-origin:top left; transform:scale(0.593); width:540px; height:960px;">
+                <div class="menu-header"><img src="items/che-logo.svg" class="logo" alt=""><div class="subtitle">Vietnamese Dessert Drinks</div><div class="screen-title">Our Signatures</div></div>
+                <div class="products-grid">
+                    <div class="product-row"><img src="items/products/card_everything_che.png" class="product-img"><div class="product-info"><div class="name">Everything Chè</div><div class="viet-name">Chè Thập Cẩm</div><div class="desc">A balanced symphony of all our finest treasures.</div><div class="ingredients"><span class="ingr">Mung Beans</span><span class="ingr">Lotus Seeds</span><span class="ingr">Grass Jelly</span><span class="ingr">Tapioca</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_house_special.png" class="product-img"><div class="product-info"><div class="name">House Special</div><div class="viet-name">Chè Đặc Biệt</div><div class="desc">Our signature combination, crafted with care.</div><div class="ingredients"><span class="ingr">Pandan Mung Bean</span><span class="ingr">Red Kidney Beans</span><span class="ingr">Bánh Lọt</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_fresh_che.png" class="product-img"><div class="product-info"><div class="name">The Fresh Chè</div><div class="viet-name">Chè Trái Cây</div><div class="desc">A vibrant medley from nature's orchard.</div><div class="ingredients"><span class="ingr">Mango</span><span class="ingr">Dragon Fruit</span><span class="ingr">Lychee</span><span class="ingr">Coconut Water</span></div></div></div>
+                </div>
+                <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+            </div>
+        </div>
+        <div style="width:320px; height:569px; border-radius:8px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+            <div class="screen-parchment" style="transform-origin:top left; transform:scale(0.593); width:540px; height:960px;">
+                <div class="menu-header"><img src="items/che-logo.svg" class="logo" alt=""><div class="subtitle">Vietnamese Dessert Drinks</div><div class="screen-title">The Classics</div></div>
+                <div class="products-grid">
+                    <div class="product-row"><img src="items/products/card_three_layer.png" class="product-img"><div class="product-info"><div class="name">The 3-Layer Chè</div><div class="viet-name">Chè Ba Màu</div><div class="desc">A classic trio, vibrant and comforting.</div><div class="ingredients"><span class="ingr">Red Kidney Beans</span><span class="ingr">Pandan Bánh Lọt</span><span class="ingr">Mung Bean Paste</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_go_to.png" class="product-img"><div class="product-info"><div class="name">The Go-To</div><div class="viet-name">Hạt Lựu Sương Sáo Bánh Lọt</div><div class="desc">A reliable choice for any dessert craving.</div><div class="ingredients"><span class="ingr">Pomegranate Pearls</span><span class="ingr">Grass Jelly</span><span class="ingr">Bánh Lọt</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_mango_coco.png" class="product-img"><div class="product-info"><div class="name">Mango Coco</div><div class="viet-name">Chè Xoài Cốt Dừa</div><div class="desc">Sweet mango puree with coconut fragrance.</div><div class="ingredients"><span class="ingr">Ripe Mango</span><span class="ingr">Sago Pearls</span><span class="ingr">Pandan</span><span class="ingr">Coconut Milk</span></div></div></div>
+                </div>
+                <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+            </div>
+        </div>
+        <div style="width:320px; height:569px; border-radius:8px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+            <div class="screen-parchment" style="transform-origin:top left; transform:scale(0.593); width:540px; height:960px;">
+                <div class="menu-header"><img src="items/che-logo.svg" class="logo" alt=""><div class="subtitle">Vietnamese Dessert Drinks</div><div class="screen-title">Specialty</div></div>
+                <div class="products-grid">
+                    <div class="product-row"><img src="items/products/card_ube_coco.png" class="product-img"><div class="product-info"><div class="name">Ube Coco</div><div class="viet-name">Chè Khoai Lang Tím Cốt Dừa</div><div class="desc">The rich, earthy purply passion of ube.</div><div class="ingredients"><span class="ingr">Ube Mash</span><span class="ingr">Ube Chunks</span><span class="ingr">Sago Pearls</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_fresh_taro.png" class="product-img"><div class="product-info"><div class="name">Fresh Taro Coco</div><div class="viet-name">Chè Khoai Môn Bánh Lọt</div><div class="desc">Creamy taro with pandan noodles.</div><div class="ingredients"><span class="ingr">Taro Chunks</span><span class="ingr">Bánh Lọt</span><span class="ingr">Roasted Sesame</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_not_too_sweet.png" class="product-img"><div class="product-info"><div class="name">Not Too Sweet</div><div class="viet-name">Chè Sương Sáo Hạt Lựu</div><div class="desc">Perfectly balanced, dark/red contrast.</div><div class="ingredients"><span class="ingr">Grass Jelly</span><span class="ingr">Pomegranate</span><span class="ingr">Crushed Ice</span><span class="ingr">Simple Syrup</span></div></div></div>
+                </div>
+                <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="monitor-label">All 3 Monitors Side-by-Side (Dark)</div>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:60px;">
+        <div style="width:320px; height:569px; border-radius:8px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+            <div class="screen-dark" style="transform-origin:top left; transform:scale(0.593); width:540px; height:960px;">
+                <div class="menu-header"><img src="items/che-logo.svg" class="logo" alt=""><div class="subtitle">Vietnamese Dessert Drinks</div><div class="screen-title">Our Signatures</div></div>
+                <div class="products-grid">
+                    <div class="product-row"><img src="items/products/card_everything_che.png" class="product-img"><div class="product-info"><div class="name">Everything Chè</div><div class="viet-name">Chè Thập Cẩm</div><div class="desc">A balanced symphony of all our finest treasures.</div><div class="ingredients"><span class="ingr">Mung Beans</span><span class="ingr">Lotus Seeds</span><span class="ingr">Grass Jelly</span><span class="ingr">Tapioca</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_house_special.png" class="product-img"><div class="product-info"><div class="name">House Special</div><div class="viet-name">Chè Đặc Biệt</div><div class="desc">Our signature combination, crafted with care.</div><div class="ingredients"><span class="ingr">Pandan Mung Bean</span><span class="ingr">Red Kidney Beans</span><span class="ingr">Bánh Lọt</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_fresh_che.png" class="product-img"><div class="product-info"><div class="name">The Fresh Chè</div><div class="viet-name">Chè Trái Cây</div><div class="desc">A vibrant medley from nature's orchard.</div><div class="ingredients"><span class="ingr">Mango</span><span class="ingr">Dragon Fruit</span><span class="ingr">Lychee</span><span class="ingr">Coconut Water</span></div></div></div>
+                </div>
+                <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+            </div>
+        </div>
+        <div style="width:320px; height:569px; border-radius:8px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+            <div class="screen-dark" style="transform-origin:top left; transform:scale(0.593); width:540px; height:960px;">
+                <div class="menu-header"><img src="items/che-logo.svg" class="logo" alt=""><div class="subtitle">Vietnamese Dessert Drinks</div><div class="screen-title">The Classics</div></div>
+                <div class="products-grid">
+                    <div class="product-row"><img src="items/products/card_three_layer.png" class="product-img"><div class="product-info"><div class="name">The 3-Layer Chè</div><div class="viet-name">Chè Ba Màu</div><div class="desc">A classic trio, vibrant and comforting.</div><div class="ingredients"><span class="ingr">Red Kidney Beans</span><span class="ingr">Pandan Bánh Lọt</span><span class="ingr">Mung Bean Paste</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_go_to.png" class="product-img"><div class="product-info"><div class="name">The Go-To</div><div class="viet-name">Hạt Lựu Sương Sáo Bánh Lọt</div><div class="desc">A reliable choice for any dessert craving.</div><div class="ingredients"><span class="ingr">Pomegranate Pearls</span><span class="ingr">Grass Jelly</span><span class="ingr">Bánh Lọt</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_mango_coco.png" class="product-img"><div class="product-info"><div class="name">Mango Coco</div><div class="viet-name">Chè Xoài Cốt Dừa</div><div class="desc">Sweet mango puree with coconut fragrance.</div><div class="ingredients"><span class="ingr">Ripe Mango</span><span class="ingr">Sago Pearls</span><span class="ingr">Pandan</span><span class="ingr">Coconut Milk</span></div></div></div>
+                </div>
+                <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+            </div>
+        </div>
+        <div style="width:320px; height:569px; border-radius:8px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.4);">
+            <div class="screen-dark" style="transform-origin:top left; transform:scale(0.593); width:540px; height:960px;">
+                <div class="menu-header"><img src="items/che-logo.svg" class="logo" alt=""><div class="subtitle">Vietnamese Dessert Drinks</div><div class="screen-title">Specialty</div></div>
+                <div class="products-grid">
+                    <div class="product-row"><img src="items/products/card_ube_coco.png" class="product-img"><div class="product-info"><div class="name">Ube Coco</div><div class="viet-name">Chè Khoai Lang Tím Cốt Dừa</div><div class="desc">The rich, earthy purply passion of ube.</div><div class="ingredients"><span class="ingr">Ube Mash</span><span class="ingr">Ube Chunks</span><span class="ingr">Sago Pearls</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_fresh_taro.png" class="product-img"><div class="product-info"><div class="name">Fresh Taro Coco</div><div class="viet-name">Chè Khoai Môn Bánh Lọt</div><div class="desc">Creamy taro with pandan noodles.</div><div class="ingredients"><span class="ingr">Taro Chunks</span><span class="ingr">Bánh Lọt</span><span class="ingr">Roasted Sesame</span><span class="ingr">Coconut Milk</span></div></div></div>
+                    <div class="product-row"><img src="items/products/card_not_too_sweet.png" class="product-img"><div class="product-info"><div class="name">Not Too Sweet</div><div class="viet-name">Chè Sương Sáo Hạt Lựu</div><div class="desc">Perfectly balanced, dark/red contrast.</div><div class="ingredients"><span class="ingr">Grass Jelly</span><span class="ingr">Pomegranate</span><span class="ingr">Crushed Ice</span><span class="ingr">Simple Syrup</span></div></div></div>
+                </div>
+                <div class="menu-footer">HEYCHE.CA · @HEYCHECA</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div><!-- end .monitors -->
+
+<script>
+// Smooth scroll nav
+document.querySelectorAll('.screen-nav a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.screen-nav a').forEach(x => x.classList.remove('active'));
+        a.classList.add('active');
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
+</script>
+</body>
+</html>
