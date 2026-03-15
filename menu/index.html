@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chè — Menu Mockups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --maroon: #6b1520;
+            --maroon-light: #8a2030;
+            --cream: #f5f0e8;
+            --dark: #1a1a1a;
+            --gold: #c8a951;
+            --sage: #7d8471;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f0e8;
+            color: var(--dark);
+        }
+
+        /* ===== STYLE SELECTOR BAR ===== */
+        .style-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(245, 240, 232, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(107, 21, 32, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            overflow-x: auto;
+        }
+
+        .style-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            border: 1.5px solid var(--maroon);
+            color: var(--maroon);
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .style-nav a:hover,
+        .style-nav a.active {
+            background: var(--maroon);
+            color: white;
+        }
+
+        .style-nav .nav-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #999;
+            font-weight: 600;
+        }
+
+        /* ===== SECTION WRAPPER ===== */
+        .menu-section {
+            min-height: 100vh;
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #999;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--maroon);
+        }
+
+        /* ===== MONITOR PREVIEW (9:16 vertical) ===== */
+        .monitor-frame {
+            max-width: 400px;
+            margin: 0 auto 4rem;
+            border: 12px solid #222;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 9 / 16;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .monitor-frame .monitor-content {
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .monitor-label {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 1rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* ===== STYLE 1: ELEGANT MINIMAL ===== */
+        .s1 {
+            background: #faf8f4;
+            font-family: 'Cormorant Garamond', serif;
+            padding: 2rem 1.5rem;
+            color: #2a2a2a;
+        }
+
+        .s1 .menu-header {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 1px solid #d4c5a9;
+            margin-bottom: 2rem;
+        }
+
+        .s1 .menu-header h1 {
+            font-size: 2.2rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            color: var(--maroon);
+        }
+
+        .s1 .menu-header p {
+            font-size: 0.85rem;
+            color: #999;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+        }
+
+        .s1 .cat-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--maroon);
+            margin: 2rem 0 1rem;
+            text-align: center;
+        }
+
+        .s1 .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.4rem 0;
+            border-bottom: 1px dotted #e0d6c2;
+        }
+
+        .s1 .item-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .s1 .item-desc {
+            font-size: 0.7rem;
+            color: #999;
+            font-style: italic;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .s1 .item-price {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--maroon);
+            white-space: nowrap;
+            margin-left: 0.5rem;
+        }
+
+        /* ===== STYLE 2: BOLD MODERN ===== */
+        .s2 {
+            background: var(--dark);
+            font-family: 'DM Sans', sans-serif;
+            padding: 0;
+            color: white;
+        }
+
+        .s2 .menu-header {
+            background: var(--maroon);
+            padding: 2.5rem 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .s2 .menu-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .s2 .menu-header p {
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            opacity: 0.7;
+            margin-top: 0.3rem;
+        }
+
+        .s2 .cat-section {
+            padding: 1.5rem;
+        }
+
+        .s2 .cat-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(200, 169, 81, 0.3);
+        }
+
+        .s2 .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+        }
+
+        .s2 .item-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .s2 .item-desc {
+            font-size: 0.65rem;
+            color: #888;
+            margin-top: 0.15rem;
+        }
+
+        .s2 .item-price {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            background: rgba(200, 169, 81, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* ===== STYLE 3: TROPICAL FRESH ===== */
+        .s3 {
+            background: linear-gradient(180deg, #fff5e6 0%, #fff 30%, #f0faf0 100%);
+            font-family: 'DM Sans', sans-serif;
+            padding: 1.5rem;
+            color: #2d3a2d;
+        }
+
+        .s3 .menu-header {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .s3 .menu-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--maroon);
+        }
+
+        .s3 .menu-header .badge {
+            display: inline-block;
+            background: var(--sage);
+            color: white;
+            font-size: 0.6rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-top: 0.5rem;
+        }
+
+        .s3 .cat-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+            background: var(--sage);
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .s3 .price-badge {
+            float: right;
+            font-size: 0.65rem;
+            background: var(--maroon);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-top: 0.05rem;
+        }
+
+        .s3 .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.3rem;
+        }
+
+        .s3 .menu-chip {
+            font-size: 0.65rem;
+            background: white;
+            padding: 0.4rem 0.5rem;
+            border-radius: 6px;
+            border: 1px solid #e8e0d0;
+            text-align: center;
+        }
+
+        /* ===== STYLE 4: CLASSIC VIETNAMESE ===== */
+        .s4 {
+            background: #2c1810;
+            font-family: 'Playfair Display', serif;
+            padding: 0;
+            color: #f5e6d3;
+        }
+
+        .s4 .menu-header {
+            background: linear-gradient(180deg, #3d2418 0%, #2c1810 100%);
+            text-align: center;
+            padding: 2.5rem 1.5rem 2rem;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .s4 .menu-header h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--gold);
+        }
+
+        .s4 .menu-header .sub {
+            font-size: 0.7rem;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3em;
+            color: #a89070;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+
+        .s4 .cat-section {
+            padding: 1.2rem 1.5rem;
+            border-bottom: 1px solid rgba(200, 169, 81, 0.15);
+        }
+
+        .s4 .cat-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+            font-style: italic;
+        }
+
+        .s4 .cat-title span {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            font-style: normal;
+            color: #a89070;
+            margin-left: 0.5rem;
+        }
+
+        .s4 .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.35rem 0;
+        }
+
+        .s4 .item-name {
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        .s4 .item-vn {
+            font-size: 0.6rem;
+            color: #a89070;
+            font-style: italic;
+        }
+
+        .s4 .item-price {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+        }
+
+        /* ===== STYLE 5: PLAYFUL COLORFUL ===== */
+        .s5 {
+            background: #fff;
+            font-family: 'DM Sans', sans-serif;
+            padding: 0;
+            color: #333;
+        }
+
+        .s5 .menu-header {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #f0932b 100%);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: white;
+        }
+
+        .s5 .menu-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .s5 .menu-header p {
+            font-size: 0.7rem;
+            opacity: 0.85;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .s5 .cat-section {
+            padding: 1rem 1.2rem;
+        }
+
+        .s5 .cat-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .s5 .cat-title.pink { background: #e84393; }
+        .s5 .cat-title.orange { background: #e17055; }
+        .s5 .cat-title.green { background: #00b894; }
+        .s5 .cat-title.blue { background: #0984e3; }
+        .s5 .cat-title.purple { background: #6c5ce7; }
+        .s5 .cat-title.teal { background: #00cec9; }
+
+        .s5 .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.35rem 0;
+            font-size: 0.8rem;
+        }
+
+        .s5 .item-price {
+            font-weight: 700;
+            color: #e17055;
+        }
+
+        /* ===== SVG GALLERY ===== */
+        .svg-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .svg-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .svg-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .svg-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .svg-card .card-label {
+            padding: 0.8rem 1rem;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        /* ===== FULL MENU SVG ===== */
+        .full-svg-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .full-svg-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ===== BACK LINK ===== */
+        .back-home {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--maroon);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(107, 21, 32, 0.3);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        .back-home:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+    <!-- STYLE SELECTOR NAV -->
+    <nav class="style-nav">
+        <span class="nav-label">Mockups:</span>
+        <a href="#style1" class="active">Elegant Minimal</a>
+        <a href="#style2">Bold Dark</a>
+        <a href="#style3">Tropical Fresh</a>
+        <a href="#style4">Classic Vietnamese</a>
+        <a href="#style5">Playful Color</a>
+        <a href="#originals">Original SVGs</a>
+        <a href="#fullmenu">Full Menu</a>
+    </nav>
+
+    <a href="/" class="back-home">← Home</a>
+
+    <!-- ===== STYLE 1: ELEGANT MINIMAL ===== -->
+    <div class="menu-section" id="style1">
+        <p class="section-title">Style 1</p>
+        <p class="section-subtitle">Elegant Minimal</p>
+        <div class="monitor-frame">
+            <div class="monitor-content s1">
+                <div class="menu-header">
+                    <h1>CHÈ</h1>
+                    <p>Dessert Drinks & More</p>
+                </div>
+
+                <div class="cat-title">Chè Dessert Drinks</div>
+                <div class="menu-item"><div><span class="item-name">Bamboo Special</span><div class="item-desc">Chè Đặc Biệt — Mixed beans, jelly, coconut milk</div></div><span class="item-price">$7.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Bamboo Combo</span><div class="item-desc">Chè Phổ Biến — 3 flavour combo</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Awesome Trio</span><div class="item-desc">Chè 3 Vị — Classic trio</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Summer Delights</span><div class="item-desc">Chè Cương Phát</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Smashed Avocado</span><div class="item-desc">Chè Bơ</div></div><span class="item-price">$7.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Fruit Addict</span><div class="item-desc">Chè Trái Cây</div></div><span class="item-price">$7.50</span></div>
+                <div class="menu-item"><div><span class="item-name">Longan Sunrise</span><div class="item-desc">Chè Long Nhãn</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Green Bean Jelly</span><div class="item-desc">Sương Sáo</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Red Bean Combo</span><div class="item-desc">Chè Đậu Đỏ Phổ Biến</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Thai Thoughts</span><div class="item-desc">Chè Thái Suy Nghĩ</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Coconut Combo</span><div class="item-desc">Chè Nước Dừa Cổ Truyền</div></div><span class="item-price">$7.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Taro Lover</span><div class="item-desc">Chè Khoai Môn</div></div><span class="item-price">$6.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Lychee Jello</span><div class="item-desc">Chè Vải Thạch</div></div><span class="item-price">$7.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Bamboo Refresher</span><div class="item-desc">Chè Giải Khát</div></div><span class="item-price">$7.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Thousand Eyes</span><div class="item-desc">Chè Ngàn Mắt</div></div><span class="item-price">$4.90</span></div>
+                <div class="menu-item"><div><span class="item-name">Create Your Own</span><div class="item-desc">Tự Chọn</div></div><span class="item-price">$7.50 / $8.50</span></div>
+
+                <div class="cat-title">Real Fruit Smoothies</div>
+                <div class="menu-item"><span class="item-name">Banana</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Coconut</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Guava</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Honeydew</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Kiwi Strawberry</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Mango Dazzle</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Orange Chillin</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Passion in Love</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Piña Colada</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Peach Catalina</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Raspberry Rama</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Red Bean</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Strawberry</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Strawberry Banana</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Taro Coconut</span><span class="item-price">$5.50</span></div>
+
+                <div class="cat-title">Premium Smoothies</div>
+                <div class="menu-item"><span class="item-name">Avocado</span><span class="item-price">$7.00</span></div>
+                <div class="menu-item"><span class="item-name">Avo Coffee</span><span class="item-price">$7.00</span></div>
+                <div class="menu-item"><span class="item-name">Avo Coconut</span><span class="item-price">$7.00</span></div>
+                <div class="menu-item"><span class="item-name">Durian</span><span class="item-price">$7.00</span></div>
+                <div class="menu-item"><span class="item-name">Jackfruit</span><span class="item-price">$7.00</span></div>
+                <div class="menu-item"><span class="item-name">Mangoñada</span><span class="item-price">$7.00</span></div>
+
+                <div class="cat-title">Teas & Milk Teas</div>
+                <div class="menu-item"><span class="item-name">Black</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Jasmine</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Oolong</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Thai</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Matcha</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Taro</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Red Bean</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Honeydew</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Lychee</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Passion Fruit</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Hazelnut</span><span class="item-price">$4.25</span></div>
+
+                <div class="cat-title">Coffees</div>
+                <div class="menu-item"><span class="item-name">Vietnamese Coffee</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Vietnamese Black</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Coconut Mocha</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Hazelnut Mocha</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Salted Caramel</span><span class="item-price">$4.25</span></div>
+                <div class="menu-item"><span class="item-name">Sea Salt Foam</span><span class="item-price">add $1.00</span></div>
+
+                <div class="cat-title">Yogurt Parfaits</div>
+                <div class="menu-item"><span class="item-name">Honeydew</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Strawberry</span><span class="item-price">$5.50</span></div>
+                <div class="menu-item"><span class="item-name">Mango</span><span class="item-price">$5.50</span></div>
+
+                <div class="cat-title">Pandan Waffles</div>
+                <div class="menu-item"><span class="item-name">Pandan Waffle</span><span class="item-price">$4.25</span></div>
+
+                <div class="cat-title">Juices & Sodas</div>
+                <div class="menu-item"><span class="item-name">Passion Fruit</span><span class="item-price">$4.50</span></div>
+                <div class="menu-item"><span class="item-name">Pennywort</span><span class="item-price">$4.50</span></div>
+                <div class="menu-item"><span class="item-name">Raspberry</span><span class="item-price">$4.50</span></div>
+                <div class="menu-item"><span class="item-name">Soda Chanh</span><span class="item-price">$4.50</span></div>
+                <div class="menu-item"><span class="item-name">Egg Soda</span><span class="item-price">$4.50</span></div>
+                <div class="menu-item"><span class="item-name">Pennywort & Mung Bean</span><span class="item-price">$6.25</span></div>
+                <div class="menu-item"><span class="item-name">Pennywort & Coconut</span><span class="item-price">$6.25</span></div>
+                <div class="menu-item"><span class="item-name">Fresh Young Coconut</span><span class="item-price">$7.00</span></div>
+
+                <div style="text-align:center; padding:1.5rem 0 0.5rem; font-size:0.7rem; color:#999; font-family:'Inter',sans-serif;">
+                    2 free add-ins (extra $0.50 each)<br>
+                    Boba · Popping Boba · Lychee Jelly · Strawberry Jelly<br>
+                    Crystal Boba · Coffee Jelly · Passion Fruit Jelly<br>
+                    Egg Pudding · Red Tortoise · Mango Jelly
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== STYLE 2: BOLD DARK ===== -->
+    <div class="menu-section" id="style2" style="background:#1a1a1a;">
+        <p class="section-title" style="color:#666;">Style 2</p>
+        <p class="section-subtitle" style="color:var(--gold);">Bold Dark</p>
+        <div class="monitor-frame" style="border-color:#444;">
+            <div class="monitor-content s2">
+                <div class="menu-header">
+                    <h1>CHÈ</h1>
+                    <p>Dessert Drinks & More</p>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Chè Dessert Drinks</div>
+                    <div class="menu-item"><div><span class="item-name">Bamboo Special</span><div class="item-desc">Mixed beans, jelly, coconut milk</div></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Bamboo Combo</span><div class="item-desc">3 flavour combo</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Awesome Trio</span><div class="item-desc">Classic trio</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Summer Delights</span></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Smashed Avocado</span></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Fruit Addict</span></div><span class="item-price">$7.50</span></div>
+                    <div class="menu-item"><div><span class="item-name">Longan Sunrise</span></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Green Bean Jelly</span></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Red Bean Combo</span></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Thai Thoughts</span></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Coconut Combo</span></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Taro Lover</span></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Lychee Jello</span></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Create Your Own</span></div><span class="item-price">$7.50+</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Real Fruit Smoothies — $5.50</div>
+                    <div class="menu-item"><span class="item-name">Banana · Coconut · Guava · Honeydew · Kiwi Strawberry · Mango Dazzle · Orange · Passion · Piña Colada · Peach · Raspberry · Red Bean · Strawberry · Strawberry Banana · Taro Coconut</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Premium Smoothies — $7.00</div>
+                    <div class="menu-item"><span class="item-name">Avocado · Avo Coffee · Avo Coconut · Durian · Jackfruit · Mangoñada</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Teas & Milk Teas — $4.25</div>
+                    <div class="menu-item"><span class="item-name">Black · Jasmine · Oolong · Thai · Matcha · Taro · Red Bean · Honeydew · Lychee · Passion Fruit · Hazelnut · Rose</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Coffees — $4.25</div>
+                    <div class="menu-item"><span class="item-name">Vietnamese · Vietnamese Black · Coconut Mocha · Hazelnut Mocha · Salted Caramel</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Juices & Sodas — $4.50</div>
+                    <div class="menu-item"><span class="item-name">Passion Fruit · Pennywort · Raspberry · Soda Chanh · Egg Soda</span></div>
+                    <div class="menu-item"><div><span class="item-name">Pennywort & Mung Bean / Coconut</span></div><span class="item-price">$6.25</span></div>
+                    <div class="menu-item"><div><span class="item-name">Fresh Young Coconut</span></div><span class="item-price">$7.00</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Extras</div>
+                    <div class="menu-item"><span class="item-name">Yogurt Parfait</span><span class="item-price">$5.50</span></div>
+                    <div class="menu-item"><span class="item-name">Pandan Waffle</span><span class="item-price">$4.25</span></div>
+                    <div class="menu-item"><span class="item-name">Make it a Large</span><span class="item-price">+$1.00</span></div>
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label" style="color:#555;">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== STYLE 3: TROPICAL FRESH ===== -->
+    <div class="menu-section" id="style3">
+        <p class="section-title">Style 3</p>
+        <p class="section-subtitle">Tropical Fresh</p>
+        <div class="monitor-frame">
+            <div class="monitor-content s3">
+                <div class="menu-header">
+                    <h1>CHÈ</h1>
+                    <span class="badge">Fresh · Natural · Delicious</span>
+                </div>
+
+                <div class="cat-title">Chè Dessert Drinks</div> <span class="price-badge">from $4.90</span>
+                <div style="clear:both"></div>
+                <div class="menu-grid">
+                    <div class="menu-chip">Bamboo Special $7.90</div>
+                    <div class="menu-chip">Bamboo Combo $6.90</div>
+                    <div class="menu-chip">Awesome Trio $6.90</div>
+                    <div class="menu-chip">Summer Delights $6.90</div>
+                    <div class="menu-chip">Smashed Avocado $7.90</div>
+                    <div class="menu-chip">Fruit Addict $7.50</div>
+                    <div class="menu-chip">Longan Sunrise $6.90</div>
+                    <div class="menu-chip">Green Bean Jelly $6.90</div>
+                    <div class="menu-chip">Red Bean Combo $6.90</div>
+                    <div class="menu-chip">Thai Thoughts $6.90</div>
+                    <div class="menu-chip">Coconut Combo $7.90</div>
+                    <div class="menu-chip">Taro Lover $6.90</div>
+                    <div class="menu-chip">Lychee Jello $7.90</div>
+                    <div class="menu-chip">Thousand Eyes $4.90</div>
+                    <div class="menu-chip">Create Your Own $7.50+</div>
+                </div>
+
+                <div class="cat-title">Smoothies</div> <span class="price-badge">$5.50</span>
+                <div style="clear:both"></div>
+                <div class="menu-grid">
+                    <div class="menu-chip">Banana</div>
+                    <div class="menu-chip">Coconut</div>
+                    <div class="menu-chip">Guava</div>
+                    <div class="menu-chip">Honeydew</div>
+                    <div class="menu-chip">Kiwi Strawberry</div>
+                    <div class="menu-chip">Mango Dazzle</div>
+                    <div class="menu-chip">Orange Chillin</div>
+                    <div class="menu-chip">Passion in Love</div>
+                    <div class="menu-chip">Piña Colada</div>
+                    <div class="menu-chip">Peach Catalina</div>
+                    <div class="menu-chip">Raspberry Rama</div>
+                    <div class="menu-chip">Red Bean</div>
+                    <div class="menu-chip">Strawberry</div>
+                    <div class="menu-chip">Strawberry Banana</div>
+                    <div class="menu-chip">Taro Coconut</div>
+                </div>
+
+                <div class="cat-title">Premium Smoothies</div> <span class="price-badge">$7.00</span>
+                <div style="clear:both"></div>
+                <div class="menu-grid">
+                    <div class="menu-chip">Avocado</div>
+                    <div class="menu-chip">Avo Coffee</div>
+                    <div class="menu-chip">Avo Coconut</div>
+                    <div class="menu-chip">Durian</div>
+                    <div class="menu-chip">Jackfruit</div>
+                    <div class="menu-chip">Mangoñada</div>
+                </div>
+
+                <div class="cat-title">Teas & Milk Teas</div> <span class="price-badge">$4.25</span>
+                <div style="clear:both"></div>
+                <div class="menu-grid">
+                    <div class="menu-chip">Black</div>
+                    <div class="menu-chip">Jasmine</div>
+                    <div class="menu-chip">Oolong</div>
+                    <div class="menu-chip">Thai</div>
+                    <div class="menu-chip">Matcha</div>
+                    <div class="menu-chip">Taro</div>
+                    <div class="menu-chip">Red Bean</div>
+                    <div class="menu-chip">Honeydew</div>
+                    <div class="menu-chip">Lychee</div>
+                    <div class="menu-chip">Passion Fruit</div>
+                    <div class="menu-chip">Hazelnut</div>
+                </div>
+
+                <div class="cat-title">Coffees</div> <span class="price-badge">$4.25</span>
+                <div style="clear:both"></div>
+                <div class="menu-grid">
+                    <div class="menu-chip">Vietnamese</div>
+                    <div class="menu-chip">Vietnamese Black</div>
+                    <div class="menu-chip">Coconut Mocha</div>
+                    <div class="menu-chip">Hazelnut Mocha</div>
+                    <div class="menu-chip">Salted Caramel</div>
+                </div>
+
+                <div class="cat-title">Juices & Sodas</div> <span class="price-badge">$4.50</span>
+                <div style="clear:both"></div>
+                <div class="menu-grid">
+                    <div class="menu-chip">Passion Fruit</div>
+                    <div class="menu-chip">Pennywort</div>
+                    <div class="menu-chip">Raspberry</div>
+                    <div class="menu-chip">Soda Chanh</div>
+                    <div class="menu-chip">Egg Soda</div>
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== STYLE 4: CLASSIC VIETNAMESE ===== -->
+    <div class="menu-section" id="style4" style="background:#1e120a;">
+        <p class="section-title" style="color:#665544;">Style 4</p>
+        <p class="section-subtitle" style="color:var(--gold);">Classic Vietnamese</p>
+        <div class="monitor-frame" style="border-color:#3d2a1a;">
+            <div class="monitor-content s4">
+                <div class="menu-header">
+                    <h1>CHÈ</h1>
+                    <p class="sub">Vietnamese Dessert Drinks</p>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Chè <span>Dessert Drinks</span></div>
+                    <div class="menu-item"><div><span class="item-name">Bamboo Special</span><div class="item-vn">Chè Đặc Biệt</div></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Bamboo Combo</span><div class="item-vn">Chè Phổ Biến</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Awesome Trio</span><div class="item-vn">Chè 3 Vị</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Summer Delights</span><div class="item-vn">Chè Cương Phát</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Smashed Avocado</span><div class="item-vn">Chè Bơ</div></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Fruit Addict</span><div class="item-vn">Chè Trái Cây</div></div><span class="item-price">$7.50</span></div>
+                    <div class="menu-item"><div><span class="item-name">Longan Sunrise</span><div class="item-vn">Chè Long Nhãn</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Green Bean Jelly</span><div class="item-vn">Sương Sáo</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Red Bean Combo</span><div class="item-vn">Chè Đậu Đỏ</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Coconut Combo</span><div class="item-vn">Chè Nước Dừa</div></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Taro Lover</span><div class="item-vn">Chè Khoai Môn</div></div><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Lychee Jello</span><div class="item-vn">Chè Vải Thạch</div></div><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><div><span class="item-name">Create Your Own</span><div class="item-vn">Tự Chọn</div></div><span class="item-price">$7.50+</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Sinh Tố <span>Smoothies — $5.50</span></div>
+                    <div class="menu-item"><span class="item-name" style="font-size:0.75rem; line-height:1.8;">Banana · Coconut · Guava · Honeydew · Kiwi Strawberry · Mango Dazzle · Orange Chillin · Passion in Love · Piña Colada · Peach Catalina · Raspberry Rama · Red Bean · Strawberry · Strawberry Banana · Taro Coconut</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Sinh Tố Đặc Biệt <span>Premium — $7.00</span></div>
+                    <div class="menu-item"><span class="item-name" style="font-size:0.75rem; line-height:1.8;">Avocado · Avo Coffee · Avo Coconut · Durian · Jackfruit · Mangoñada</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Trà & Trà Sữa <span>Teas — $4.25</span></div>
+                    <div class="menu-item"><span class="item-name" style="font-size:0.75rem; line-height:1.8;">Black · Jasmine · Oolong · Thai · Matcha · Taro · Red Bean · Honeydew · Lychee · Passion Fruit · Hazelnut · Rose</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Cà Phê <span>Coffees — $4.25</span></div>
+                    <div class="menu-item"><span class="item-name" style="font-size:0.75rem; line-height:1.8;">Vietnamese · Vietnamese Black · Coconut Mocha · Hazelnut Mocha · Salted Caramel</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Nước Ép & Soda <span>Juices — $4.50</span></div>
+                    <div class="menu-item"><span class="item-name" style="font-size:0.75rem; line-height:1.8;">Passion Fruit · Pennywort · Raspberry · Soda Chanh · Egg Soda</span></div>
+                    <div class="menu-item"><div><span class="item-name">Pennywort & Mung Bean</span></div><span class="item-price">$6.25</span></div>
+                    <div class="menu-item"><div><span class="item-name">Fresh Young Coconut</span></div><span class="item-price">$7.00</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title">Thêm <span>Extras</span></div>
+                    <div class="menu-item"><span class="item-name">Yogurt Parfait</span><span class="item-price">$5.50</span></div>
+                    <div class="menu-item"><span class="item-name">Pandan Waffle</span><span class="item-price">$4.25</span></div>
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label" style="color:#665544;">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== STYLE 5: PLAYFUL COLORFUL ===== -->
+    <div class="menu-section" id="style5">
+        <p class="section-title">Style 5</p>
+        <p class="section-subtitle">Playful Colorful</p>
+        <div class="monitor-frame">
+            <div class="monitor-content s5">
+                <div class="menu-header">
+                    <h1>CHÈ</h1>
+                    <p>Dessert Drinks & More</p>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title pink">☀️ Chè Dessert Drinks</div>
+                    <div class="menu-item"><span>Bamboo Special</span><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><span>Bamboo Combo</span><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><span>Awesome Trio</span><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><span>Summer Delights</span><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><span>Smashed Avocado</span><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><span>Fruit Addict</span><span class="item-price">$7.50</span></div>
+                    <div class="menu-item"><span>Longan Sunrise</span><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><span>Green Bean Jelly</span><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><span>Red Bean Combo</span><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><span>Coconut Combo</span><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><span>Taro Lover</span><span class="item-price">$6.90</span></div>
+                    <div class="menu-item"><span>Lychee Jello</span><span class="item-price">$7.90</span></div>
+                    <div class="menu-item"><span>Create Your Own</span><span class="item-price">$7.50+</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title orange">🍓 Smoothies — $5.50</div>
+                    <div class="menu-item"><span>Banana · Coconut · Guava · Honeydew · Kiwi Strawberry · Mango · Orange · Passion · Piña Colada · Peach · Raspberry · Red Bean · Strawberry · Strawberry Banana · Taro Coconut</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title green">🥑 Premium — $7.00</div>
+                    <div class="menu-item"><span>Avocado · Avo Coffee · Avo Coconut · Durian · Jackfruit · Mangoñada</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title blue">🍵 Teas & Milk Teas — $4.25</div>
+                    <div class="menu-item"><span>Black · Jasmine · Oolong · Thai · Matcha · Taro · Red Bean · Honeydew · Lychee · Passion Fruit · Hazelnut · Rose</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title purple">☕ Coffees — $4.25</div>
+                    <div class="menu-item"><span>Vietnamese · Vietnamese Black · Coconut Mocha · Hazelnut Mocha · Salted Caramel</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title teal">🧃 Juices & Sodas — $4.50</div>
+                    <div class="menu-item"><span>Passion Fruit · Pennywort · Raspberry · Soda Chanh · Egg Soda</span></div>
+                    <div class="menu-item"><span>Pennywort & Mung Bean / Coconut</span><span class="item-price">$6.25</span></div>
+                    <div class="menu-item"><span>Fresh Young Coconut</span><span class="item-price">$7.00</span></div>
+                </div>
+
+                <div class="cat-section">
+                    <div class="cat-title pink">🧇 Extras</div>
+                    <div class="menu-item"><span>Yogurt Parfait</span><span class="item-price">$5.50</span></div>
+                    <div class="menu-item"><span>Pandan Waffle</span><span class="item-price">$4.25</span></div>
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== ORIGINAL SVG COMPONENTS ===== -->
+    <div class="menu-section" id="originals">
+        <p class="section-title">Reference</p>
+        <p class="section-subtitle">Original Product Images</p>
+        <div class="svg-gallery">
+            <div class="svg-card"><img src="items/component_001.svg" alt="Component 1" loading="lazy"><div class="card-label">Component 001</div></div>
+            <div class="svg-card"><img src="items/component_002.svg" alt="Component 2" loading="lazy"><div class="card-label">Component 002</div></div>
+            <div class="svg-card"><img src="items/component_012.svg" alt="Component 12" loading="lazy"><div class="card-label">Component 012</div></div>
+            <div class="svg-card"><img src="items/component_014.svg" alt="Component 14" loading="lazy"><div class="card-label">Component 014</div></div>
+            <div class="svg-card"><img src="items/component_015.svg" alt="Component 15" loading="lazy"><div class="card-label">Component 015</div></div>
+            <div class="svg-card"><img src="items/component_017.svg" alt="Component 17" loading="lazy"><div class="card-label">Component 017</div></div>
+            <div class="svg-card"><img src="items/component_026.svg" alt="Component 26" loading="lazy"><div class="card-label">Component 026</div></div>
+            <div class="svg-card"><img src="items/component_029.svg" alt="Component 29" loading="lazy"><div class="card-label">Component 029</div></div>
+            <div class="svg-card"><img src="items/component_030.svg" alt="Component 30" loading="lazy"><div class="card-label">Component 030</div></div>
+        </div>
+    </div>
+
+    <!-- ===== FULL MENU SVG ===== -->
+    <div class="menu-section" id="fullmenu">
+        <p class="section-title">Reference</p>
+        <p class="section-subtitle">The Fresh Chè — Full Design</p>
+        <div class="full-svg-section">
+            <img src="items/the-fresh-che.svg" alt="The Fresh Che Full Menu" loading="lazy">
+        </div>
+    </div>
+
+    <!-- Smooth scroll for nav links -->
+    <script>
+        document.querySelectorAll('.style-nav a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelectorAll('.style-nav a').forEach(a => a.classList.remove('active'));
+                link.classList.add('active');
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Update active nav on scroll
+        const sections = document.querySelectorAll('.menu-section');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    document.querySelectorAll('.style-nav a').forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+        sections.forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
