@@ -530,6 +530,360 @@
         }
 
         .back-home:hover { transform: translateY(-2px); }
+
+        /* ===== STYLE 6: EDITORIAL PAPER (inspired by reference) ===== */
+        .s6 {
+            background: #e8e0d4;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+            font-family: 'Cormorant Garamond', serif;
+            padding: 0;
+            color: #2a2018;
+            overflow-x: hidden;
+        }
+
+        .s6 .menu-header {
+            text-align: center;
+            padding: 2.5rem 1.5rem 1.5rem;
+        }
+
+        .s6 .menu-logo { width: 100px; }
+
+        .s6 .menu-header .tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: #998;
+            margin-top: 0.4rem;
+        }
+
+        .s6 .divider {
+            width: 40px;
+            height: 1px;
+            background: #b8a88a;
+            margin: 0 auto 1.5rem;
+        }
+
+        .s6 .product-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .s6 .product-feature.reverse { flex-direction: row-reverse; }
+
+        .s6 .product-img {
+            width: 45%;
+            flex-shrink: 0;
+        }
+
+        .s6 .product-img img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            mix-blend-mode: multiply;
+        }
+
+        .s6 .product-info {
+            flex: 1;
+        }
+
+        .s6 .product-info .script-name {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.7rem;
+            color: #998;
+            margin-bottom: 0.15rem;
+        }
+
+        .s6 .product-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+            color: #2a2018;
+        }
+
+        .s6 .product-info .vn-name {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.55rem;
+            color: #887;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.3rem;
+        }
+
+        .s6 .product-info .ingredients {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            color: #998;
+            line-height: 1.4;
+            margin-bottom: 0.4rem;
+        }
+
+        .s6 .product-info .price {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--maroon);
+        }
+
+        .s6 .product-info .price span {
+            font-size: 0.6rem;
+            font-weight: 400;
+            color: #998;
+        }
+
+        .s6 .category-divider {
+            text-align: center;
+            padding: 1.2rem 0 0.5rem;
+        }
+
+        .s6 .category-divider h2 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--maroon);
+        }
+
+        .s6 .category-divider .sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.5rem;
+            color: #998;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .s6 .text-items {
+            padding: 0.5rem 1.5rem;
+        }
+
+        .s6 .text-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            border-bottom: 1px dotted #c8b89a;
+        }
+
+        .s6 .text-item span:first-child { font-size: 0.75rem; }
+        .s6 .text-item span:last-child { font-size: 0.75rem; color: var(--maroon); font-weight: 600; }
+
+        /* ===== STYLE 7: MAGAZINE GRID ===== */
+        .s7 {
+            background: #faf8f5;
+            font-family: 'DM Sans', sans-serif;
+            padding: 0;
+            color: #1a1a1a;
+        }
+
+        .s7 .menu-header {
+            background: var(--maroon);
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+        }
+
+        .s7 .menu-logo { width: 90px; filter: brightness(0) invert(1); }
+
+        .s7 .menu-header .tagline {
+            font-size: 0.55rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.6);
+            margin-top: 0.3rem;
+        }
+
+        .s7 .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .s7 .grid-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .s7 .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .s7 .grid-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.85));
+            padding: 0.8rem 0.6rem 0.5rem;
+            color: white;
+        }
+
+        .s7 .grid-item .overlay h4 {
+            font-size: 0.65rem;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
+        }
+
+        .s7 .grid-item .overlay .vn {
+            font-size: 0.45rem;
+            opacity: 0.7;
+        }
+
+        .s7 .grid-item .overlay .price {
+            position: absolute;
+            top: -1.5rem;
+            right: 0.5rem;
+            background: var(--maroon);
+            color: white;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .s7 .cat-header {
+            background: #f0ece4;
+            padding: 0.8rem 1rem;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        .s7 .cat-header h3 {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--maroon);
+        }
+
+        .s7 .cat-header .sub {
+            font-size: 0.45rem;
+            color: #999;
+            letter-spacing: 0.1em;
+        }
+
+        .s7 .list-section {
+            padding: 0.8rem 1rem;
+            grid-column: 1 / -1;
+        }
+
+        .s7 .list-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.3rem 0;
+            font-size: 0.6rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .s7 .list-item .price { color: var(--maroon); font-weight: 700; }
+
+        /* ===== STYLE 8: DARK SHOWCASE ===== */
+        .s8 {
+            background: #0a0a0a;
+            font-family: 'Inter', sans-serif;
+            padding: 0;
+            color: #e0e0e0;
+        }
+
+        .s8 .menu-header {
+            text-align: center;
+            padding: 2.5rem 1.5rem 1rem;
+            border-bottom: 1px solid rgba(200, 169, 81, 0.2);
+        }
+
+        .s8 .menu-logo { width: 100px; filter: brightness(0) invert(1); }
+
+        .s8 .menu-header .tagline {
+            font-size: 0.5rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 0.4rem;
+        }
+
+        .s8 .hero-product {
+            position: relative;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .s8 .hero-product img {
+            width: 70%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 0.8rem;
+        }
+
+        .s8 .hero-product .number {
+            position: absolute;
+            top: 1rem;
+            left: 1.2rem;
+            font-size: 2.5rem;
+            font-weight: 200;
+            color: rgba(200, 169, 81, 0.15);
+            line-height: 1;
+        }
+
+        .s8 .hero-product h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.15rem;
+        }
+
+        .s8 .hero-product .vn-name {
+            font-size: 0.55rem;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .s8 .hero-product .desc {
+            font-size: 0.5rem;
+            color: #777;
+            text-align: center;
+            line-height: 1.4;
+            margin-bottom: 0.4rem;
+        }
+
+        .s8 .hero-product .price-tag {
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+            background: var(--maroon);
+            padding: 0.25rem 0.8rem;
+            border-radius: 4px;
+        }
+
+        .s8 .compact-section {
+            padding: 1rem 1.5rem;
+        }
+
+        .s8 .compact-section h3 {
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px solid rgba(200, 169, 81, 0.2);
+        }
+
+        .s8 .compact-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.25rem 0;
+            font-size: 0.6rem;
+        }
+
+        .s8 .compact-item .name { color: #ccc; }
+        .s8 .compact-item .price { color: var(--gold); font-weight: 600; }
     </style>
 </head>
 <body>
@@ -542,6 +896,9 @@
         <a href="#style3">Tropical Fresh</a>
         <a href="#style4">Classic Vietnamese</a>
         <a href="#style5">Playful Color</a>
+        <a href="#style6">📰 Editorial Paper</a>
+        <a href="#style7">📸 Magazine Grid</a>
+        <a href="#style8">🖤 Dark Showcase</a>
         <a href="#originals">Original SVGs</a>
         <a href="#fullmenu">Full Menu</a>
     </nav>
@@ -949,6 +1306,338 @@
             </div>
         </div>
         <p class="monitor-label">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== STYLE 6: EDITORIAL PAPER ===== -->
+    <div class="menu-section" id="style6" style="background:#d4cec4;">
+        <p class="section-title">Style 6</p>
+        <p class="section-subtitle">Editorial Paper</p>
+        <div class="monitor-frame" style="border-color:#8a8070;">
+            <div class="monitor-content s6">
+                <div class="menu-header">
+                    <img src="items/che-logo.svg" alt="Chè" class="menu-logo">
+                    <div class="tagline">Vietnamese Dessert Drinks · Est. 2026</div>
+                </div>
+                <div class="divider"></div>
+
+                <div class="category-divider">
+                    <h2>Signature Chè</h2>
+                    <div class="sub">Our most-loved dessert drinks</div>
+                </div>
+
+                <div class="product-feature">
+                    <div class="product-img"><img src="items/products/product_001.png" alt="Bamboo Special" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Our Signature</div>
+                        <h3>Bamboo Special</h3>
+                        <div class="vn-name">Chè Đặc Biệt</div>
+                        <div class="ingredients">Mixed beans · Grass jelly · Mung bean · Coconut milk · Shredded coconut</div>
+                        <div class="price">$7.90 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="product-feature reverse">
+                    <div class="product-img"><img src="items/products/product_012.png" alt="Awesome Trio" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Fan Favourite</div>
+                        <h3>Awesome Trio</h3>
+                        <div class="vn-name">Chè 3 Vị</div>
+                        <div class="ingredients">Red beans · Mung beans · Pandan jelly · Coconut cream</div>
+                        <div class="price">$6.90 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="product-feature">
+                    <div class="product-img"><img src="items/products/product_014.png" alt="Fruit Addict" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Tropical Bliss</div>
+                        <h3>Fruit Addict</h3>
+                        <div class="vn-name">Chè Trái Cây</div>
+                        <div class="ingredients">Dragon fruit · Mango · Jackfruit · Coconut cream · Shredded coconut</div>
+                        <div class="price">$7.50 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="product-feature reverse">
+                    <div class="product-img"><img src="items/products/product_026.png" alt="Longan Sunrise" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Purple Magic</div>
+                        <h3>Longan Sunrise</h3>
+                        <div class="vn-name">Chè Long Nhãn</div>
+                        <div class="ingredients">Purple yam · Longan · Tapioca · Coconut cream · Shredded coconut</div>
+                        <div class="price">$6.90 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="product-feature">
+                    <div class="product-img"><img src="items/products/product_015.png" alt="Green Bean Jelly" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Refreshing</div>
+                        <h3>Green Bean Jelly</h3>
+                        <div class="vn-name">Sương Sáo</div>
+                        <div class="ingredients">Grass jelly · Pandan jelly · Red tapioca · Coconut milk</div>
+                        <div class="price">$6.90 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="product-feature reverse">
+                    <div class="product-img"><img src="items/products/product_017.png" alt="Thai Thoughts" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Creamy &amp; Sweet</div>
+                        <h3>Thai Thoughts</h3>
+                        <div class="vn-name">Chè Thái</div>
+                        <div class="ingredients">Tapioca pearls · Mango · Coconut cream · Pandan leaf</div>
+                        <div class="price">$6.90 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="product-feature">
+                    <div class="product-img"><img src="items/products/product_029.png" alt="Summer Delights" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Cool &amp; Silky</div>
+                        <h3>Summer Delights</h3>
+                        <div class="vn-name">Chè Cương Phát</div>
+                        <div class="ingredients">Taro · Pandan jelly · Coconut cream · Sweet potato</div>
+                        <div class="price">$6.90 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="product-feature reverse">
+                    <div class="product-img"><img src="items/products/product_030.png" alt="Red Bean Combo" loading="lazy"></div>
+                    <div class="product-info">
+                        <div class="script-name">Classic Combo</div>
+                        <h3>Red Bean Combo</h3>
+                        <div class="vn-name">Chè Đậu Đỏ Phổ Biến</div>
+                        <div class="ingredients">Grass jelly · Red beans · Tapioca · Coconut milk</div>
+                        <div class="price">$6.90 <span>/ cup</span></div>
+                    </div>
+                </div>
+
+                <div class="category-divider">
+                    <h2>More Favourites</h2>
+                    <div class="sub">Smoothies · Teas · Coffees · Waffles</div>
+                </div>
+
+                <div class="text-items">
+                    <div class="text-item"><span>Bamboo Combo · Chè Phổ Biến</span><span>$6.90</span></div>
+                    <div class="text-item"><span>Smashed Avocado · Chè Bơ</span><span>$7.90</span></div>
+                    <div class="text-item"><span>Rainbow Delight · Chè 5 Màu</span><span>$7.50</span></div>
+                    <div class="text-item"><span>Mango Smoothie</span><span>$5.50</span></div>
+                    <div class="text-item"><span>Avocado Smoothie</span><span>$5.50</span></div>
+                    <div class="text-item"><span>Taro Smoothie</span><span>$5.50</span></div>
+                    <div class="text-item"><span>Dragon Fruit Smoothie</span><span>$5.50</span></div>
+                    <div class="text-item"><span>Strawberry Smoothie</span><span>$5.50</span></div>
+                    <div class="text-item"><span>Vietnamese Coffee · Cà Phê Sữa</span><span>$4.25</span></div>
+                    <div class="text-item"><span>Coconut Coffee</span><span>$4.25</span></div>
+                    <div class="text-item"><span>Jasmine Milk Tea</span><span>$4.25</span></div>
+                    <div class="text-item"><span>Taro Milk Tea</span><span>$4.25</span></div>
+                    <div class="text-item"><span>Matcha Milk Tea</span><span>$4.25</span></div>
+                    <div class="text-item"><span>Pandan Waffles</span><span>$4.25</span></div>
+                    <div class="text-item"><span>Yogurt Parfait</span><span>$5.50</span></div>
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== STYLE 7: MAGAZINE GRID ===== -->
+    <div class="menu-section" id="style7" style="background:#eee;">
+        <p class="section-title">Style 7</p>
+        <p class="section-subtitle">Magazine Grid</p>
+        <div class="monitor-frame">
+            <div class="monitor-content s7">
+                <div class="menu-header">
+                    <img src="items/che-logo.svg" alt="Chè" class="menu-logo">
+                    <div class="tagline">Dessert Drinks · Smoothies · Teas</div>
+                </div>
+
+                <div class="photo-grid">
+                    <div class="cat-header"><h3>Signature Chè</h3><div class="sub">Vietnamese Dessert Drinks</div></div>
+
+                    <div class="grid-item">
+                        <img src="items/products/product_001.png" alt="Bamboo Special" loading="lazy">
+                        <div class="overlay"><div class="price">$7.90</div><h4>Bamboo Special</h4><div class="vn">Chè Đặc Biệt</div></div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="items/products/product_012.png" alt="Awesome Trio" loading="lazy">
+                        <div class="overlay"><div class="price">$6.90</div><h4>Awesome Trio</h4><div class="vn">Chè 3 Vị</div></div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="items/products/product_014.png" alt="Fruit Addict" loading="lazy">
+                        <div class="overlay"><div class="price">$7.50</div><h4>Fruit Addict</h4><div class="vn">Chè Trái Cây</div></div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="items/products/product_026.png" alt="Longan Sunrise" loading="lazy">
+                        <div class="overlay"><div class="price">$6.90</div><h4>Longan Sunrise</h4><div class="vn">Chè Long Nhãn</div></div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="items/products/product_015.png" alt="Green Bean Jelly" loading="lazy">
+                        <div class="overlay"><div class="price">$6.90</div><h4>Green Bean Jelly</h4><div class="vn">Sương Sáo</div></div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="items/products/product_017.png" alt="Thai Thoughts" loading="lazy">
+                        <div class="overlay"><div class="price">$6.90</div><h4>Thai Thoughts</h4><div class="vn">Chè Thái</div></div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="items/products/product_029.png" alt="Summer Delights" loading="lazy">
+                        <div class="overlay"><div class="price">$6.90</div><h4>Summer Delights</h4><div class="vn">Chè Cương Phát</div></div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="items/products/product_030.png" alt="Red Bean Combo" loading="lazy">
+                        <div class="overlay"><div class="price">$6.90</div><h4>Red Bean Combo</h4><div class="vn">Chè Đậu Đỏ</div></div>
+                    </div>
+
+                    <div class="cat-header"><h3>Smoothies &amp; More</h3><div class="sub">Real Fruit · Premium Blends</div></div>
+
+                    <div class="list-section">
+                        <div class="list-item"><span>Mango Smoothie</span><span class="price">$5.50</span></div>
+                        <div class="list-item"><span>Avocado Smoothie</span><span class="price">$5.50</span></div>
+                        <div class="list-item"><span>Taro Smoothie</span><span class="price">$5.50</span></div>
+                        <div class="list-item"><span>Dragon Fruit Smoothie</span><span class="price">$5.50</span></div>
+                        <div class="list-item"><span>Strawberry Smoothie</span><span class="price">$5.50</span></div>
+                        <div class="list-item"><span>Coconut Smoothie</span><span class="price">$5.50</span></div>
+                        <div class="list-item"><span>Passion Fruit Smoothie</span><span class="price">$5.50</span></div>
+                    </div>
+
+                    <div class="cat-header"><h3>Teas &amp; Coffees</h3><div class="sub">Milk Teas · Vietnamese Coffee</div></div>
+
+                    <div class="list-section">
+                        <div class="list-item"><span>Vietnamese Coffee · Cà Phê Sữa</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Coconut Coffee</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Egg Coffee</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Jasmine Milk Tea</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Taro Milk Tea</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Matcha Milk Tea</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Thai Milk Tea</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Oolong Milk Tea</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Pandan Waffles</span><span class="price">$4.25</span></div>
+                        <div class="list-item"><span>Yogurt Parfait</span><span class="price">$5.50</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label">32" Vertical Monitor Preview</p>
+    </div>
+
+    <!-- ===== STYLE 8: DARK SHOWCASE ===== -->
+    <div class="menu-section" id="style8" style="background:#111;">
+        <p class="section-title" style="color:#555;">Style 8</p>
+        <p class="section-subtitle" style="color:var(--gold);">Dark Showcase</p>
+        <div class="monitor-frame" style="border-color:#333;">
+            <div class="monitor-content s8">
+                <div class="menu-header">
+                    <img src="items/che-logo.svg" alt="Chè" class="menu-logo">
+                    <div class="tagline">Vietnamese Dessert Drinks</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">01</span>
+                    <img src="items/products/product_001.png" alt="Bamboo Special" loading="lazy">
+                    <h3>Bamboo Special</h3>
+                    <div class="vn-name">Chè Đặc Biệt</div>
+                    <div class="desc">Mixed beans, grass jelly, mung bean, coconut milk with shredded coconut</div>
+                    <div class="price-tag">$7.90</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">02</span>
+                    <img src="items/products/product_014.png" alt="Fruit Addict" loading="lazy">
+                    <h3>Fruit Addict</h3>
+                    <div class="vn-name">Chè Trái Cây</div>
+                    <div class="desc">Dragon fruit, mango, jackfruit, coconut cream with shredded coconut</div>
+                    <div class="price-tag">$7.50</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">03</span>
+                    <img src="items/products/product_026.png" alt="Longan Sunrise" loading="lazy">
+                    <h3>Longan Sunrise</h3>
+                    <div class="vn-name">Chè Long Nhãn</div>
+                    <div class="desc">Purple yam, longan, tapioca pearls, coconut cream</div>
+                    <div class="price-tag">$6.90</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">04</span>
+                    <img src="items/products/product_012.png" alt="Awesome Trio" loading="lazy">
+                    <h3>Awesome Trio</h3>
+                    <div class="vn-name">Chè 3 Vị</div>
+                    <div class="desc">Red beans, mung beans, pandan jelly, coconut cream</div>
+                    <div class="price-tag">$6.90</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">05</span>
+                    <img src="items/products/product_017.png" alt="Thai Thoughts" loading="lazy">
+                    <h3>Thai Thoughts</h3>
+                    <div class="vn-name">Chè Thái</div>
+                    <div class="desc">Tapioca pearls, mango, coconut cream, pandan leaf</div>
+                    <div class="price-tag">$6.90</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">06</span>
+                    <img src="items/products/product_015.png" alt="Green Bean Jelly" loading="lazy">
+                    <h3>Green Bean Jelly</h3>
+                    <div class="vn-name">Sương Sáo</div>
+                    <div class="desc">Grass jelly, pandan jelly, red tapioca, coconut milk</div>
+                    <div class="price-tag">$6.90</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">07</span>
+                    <img src="items/products/product_029.png" alt="Summer Delights" loading="lazy">
+                    <h3>Summer Delights</h3>
+                    <div class="vn-name">Chè Cương Phát</div>
+                    <div class="desc">Taro cubes, pandan jelly, coconut cream, sweet potato</div>
+                    <div class="price-tag">$6.90</div>
+                </div>
+
+                <div class="hero-product">
+                    <span class="number">08</span>
+                    <img src="items/products/product_030.png" alt="Red Bean Combo" loading="lazy">
+                    <h3>Red Bean Combo</h3>
+                    <div class="vn-name">Chè Đậu Đỏ Phổ Biến</div>
+                    <div class="desc">Grass jelly, red beans, tapioca pearls, coconut milk</div>
+                    <div class="price-tag">$6.90</div>
+                </div>
+
+                <div class="compact-section">
+                    <h3>Smoothies</h3>
+                    <div class="compact-item"><span class="name">Mango Smoothie</span><span class="price">$5.50</span></div>
+                    <div class="compact-item"><span class="name">Avocado Smoothie</span><span class="price">$5.50</span></div>
+                    <div class="compact-item"><span class="name">Taro Smoothie</span><span class="price">$5.50</span></div>
+                    <div class="compact-item"><span class="name">Dragon Fruit Smoothie</span><span class="price">$5.50</span></div>
+                    <div class="compact-item"><span class="name">Strawberry Smoothie</span><span class="price">$5.50</span></div>
+                    <div class="compact-item"><span class="name">Coconut Smoothie</span><span class="price">$5.50</span></div>
+                    <div class="compact-item"><span class="name">Passion Fruit Smoothie</span><span class="price">$5.50</span></div>
+                </div>
+
+                <div class="compact-section">
+                    <h3>Teas &amp; Milk Teas</h3>
+                    <div class="compact-item"><span class="name">Jasmine Milk Tea</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Taro Milk Tea</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Matcha Milk Tea</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Thai Milk Tea</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Oolong Milk Tea</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Red Bean Milk Tea</span><span class="price">$4.25</span></div>
+                </div>
+
+                <div class="compact-section">
+                    <h3>Vietnamese Coffee</h3>
+                    <div class="compact-item"><span class="name">Cà Phê Sữa Đá</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Coconut Coffee</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Egg Coffee</span><span class="price">$4.25</span></div>
+                </div>
+
+                <div class="compact-section">
+                    <h3>Extras</h3>
+                    <div class="compact-item"><span class="name">Pandan Waffles</span><span class="price">$4.25</span></div>
+                    <div class="compact-item"><span class="name">Yogurt Parfait</span><span class="price">$5.50</span></div>
+                </div>
+            </div>
+        </div>
+        <p class="monitor-label" style="color:#555;">32" Vertical Monitor Preview</p>
     </div>
 
     <!-- ===== ORIGINAL SVG COMPONENTS ===== -->
