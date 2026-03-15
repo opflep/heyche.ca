@@ -70,8 +70,8 @@ body {
     transition: background 0.3s;
 }
 .s-parchment .item img {
-    width: 100%; max-width: 140px; height: auto; max-height: 160px;
-    object-fit: contain; margin-bottom: 4px;
+    width: 100%; max-width: 150px; height: auto; max-height: 180px;
+    object-fit: contain; margin-bottom: 6px;
 }
 .s-parchment .item .nm {
     font-family: 'Playfair Display', serif; font-size: 13px;
@@ -114,8 +114,8 @@ body {
     border-radius: 8px; border: 1px solid rgba(201,169,110,0.06);
 }
 .s-dark .item img {
-    width: 100%; max-width: 140px; height: auto; max-height: 160px;
-    object-fit: contain; margin-bottom: 4px;
+    width: 100%; max-width: 150px; height: auto; max-height: 180px;
+    object-fit: contain; margin-bottom: 6px;
     filter: drop-shadow(0 2px 12px rgba(201,169,110,0.12));
 }
 .s-dark .item .nm {
@@ -159,8 +159,8 @@ body {
     border-radius: 8px;
 }
 .s-burgundy .item img {
-    width: 100%; max-width: 140px; height: auto; max-height: 160px;
-    object-fit: contain; margin-bottom: 4px;
+    width: 100%; max-width: 150px; height: auto; max-height: 180px;
+    object-fit: contain; margin-bottom: 6px;
     filter: drop-shadow(0 2px 16px rgba(200,100,100,0.12));
 }
 .s-burgundy .item .nm {
@@ -206,8 +206,8 @@ body {
     border: 1px solid rgba(0,0,0,0.04);
 }
 .s-white .item img {
-    width: 100%; max-width: 135px; height: auto; max-height: 155px;
-    object-fit: contain; margin-bottom: 4px;
+    width: 100%; max-width: 150px; height: auto; max-height: 175px;
+    object-fit: contain; margin-bottom: 6px;
 }
 .s-white .item .nm {
     font-family: 'Playfair Display', serif; font-size: 12.5px;
@@ -222,6 +222,71 @@ body {
     border-top: 2px solid #7a0000;
     font-size: 9px; color: #999; letter-spacing: 1.5px;
 }
+/* ===== STYLE E: ELEGANT MINIMAL ===== */
+.s-minimal {
+    background: #f8f5f0; height: 100%;
+    display: flex; flex-direction: column;
+}
+.s-minimal .hdr {
+    text-align: center; padding: 28px 16px 14px;
+}
+.s-minimal .hdr .logo { height: 36px; margin-bottom: 6px; }
+.s-minimal .hdr .sub {
+    font-family: 'Cormorant Garamond', serif; font-size: 12px;
+    color: #999; font-style: italic; letter-spacing: 2.5px;
+    text-transform: lowercase;
+}
+.s-minimal .hdr .line {
+    width: 40px; height: 1px; background: #c9a3a3;
+    margin: 10px auto 0;
+}
+.s-minimal .grid {
+    flex: 1; display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0; padding: 6px 12px;
+}
+.s-minimal .item {
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; padding: 8px 6px;
+    position: relative;
+}
+/* Subtle grid lines */
+.s-minimal .item::after {
+    content: ''; position: absolute; bottom: 0; left: 15%; right: 15%;
+    height: 1px; background: rgba(122,0,0,0.06);
+}
+.s-minimal .item:nth-child(3n+2)::before {
+    content: ''; position: absolute; left: 0; top: 15%; bottom: 15%;
+    width: 1px; background: rgba(122,0,0,0.06);
+}
+.s-minimal .item:nth-child(3n)::before {
+    content: ''; position: absolute; left: 0; top: 15%; bottom: 15%;
+    width: 1px; background: rgba(122,0,0,0.06);
+}
+.s-minimal .item:nth-child(n+7)::after { display: none; }
+.s-minimal .item img {
+    width: 100%; max-width: 130px; height: auto; max-height: 160px;
+    object-fit: contain; margin-bottom: 8px;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.06));
+}
+.s-minimal .item .nm {
+    font-family: 'Playfair Display', serif; font-size: 13px;
+    font-weight: 600; color: #2a2018; font-style: italic;
+    line-height: 1.25; margin-bottom: 2px;
+    letter-spacing: 0.3px;
+}
+.s-minimal .item .vn {
+    font-family: 'Cormorant Garamond', serif; font-size: 10.5px;
+    color: #7a0000; font-style: italic; line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+.s-minimal .ftr {
+    text-align: center; padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 8px; color: #bbb; letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
 </style>
 </head>
 <body>
@@ -231,6 +296,7 @@ body {
     <a href="#b">Dark</a>
     <a href="#c">Burgundy</a>
     <a href="#d">Clean White</a>
+    <a href="#e">Elegant Minimal</a>
 </nav>
 
 <div class="monitors">
@@ -244,15 +310,15 @@ body {
         <div class="sub">Vietnamese Dessert Drinks</div>
     </div>
     <div class="grid">
-        <div class="item"><img src="items/products/cut_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
-        <div class="item"><img src="items/products/cut_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
-        <div class="item"><img src="items/products/cut_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
-        <div class="item"><img src="items/products/cut_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
-        <div class="item"><img src="items/products/cut_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
-        <div class="item"><img src="items/products/cut_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
-        <div class="item"><img src="items/products/cut_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
+        <div class="item"><img src="items/products/illus_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
+        <div class="item"><img src="items/products/illus_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
+        <div class="item"><img src="items/products/illus_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
+        <div class="item"><img src="items/products/illus_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
+        <div class="item"><img src="items/products/illus_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
+        <div class="item"><img src="items/products/illus_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
+        <div class="item"><img src="items/products/illus_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
     </div>
     <div class="ftr">HEYCHE.CA · @HEYCHECA</div>
 </div></div>
@@ -267,15 +333,15 @@ body {
         <div class="sub">Vietnamese Dessert Drinks</div>
     </div>
     <div class="grid">
-        <div class="item"><img src="items/products/cut_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
-        <div class="item"><img src="items/products/cut_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
-        <div class="item"><img src="items/products/cut_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
-        <div class="item"><img src="items/products/cut_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
-        <div class="item"><img src="items/products/cut_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
-        <div class="item"><img src="items/products/cut_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
-        <div class="item"><img src="items/products/cut_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
+        <div class="item"><img src="items/products/illus_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
+        <div class="item"><img src="items/products/illus_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
+        <div class="item"><img src="items/products/illus_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
+        <div class="item"><img src="items/products/illus_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
+        <div class="item"><img src="items/products/illus_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
+        <div class="item"><img src="items/products/illus_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
+        <div class="item"><img src="items/products/illus_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
     </div>
     <div class="ftr">HEYCHE.CA · @HEYCHECA</div>
 </div></div>
@@ -290,15 +356,15 @@ body {
         <div class="sub">Vietnamese Dessert Drinks</div>
     </div>
     <div class="grid">
-        <div class="item"><img src="items/products/cut_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
-        <div class="item"><img src="items/products/cut_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
-        <div class="item"><img src="items/products/cut_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
-        <div class="item"><img src="items/products/cut_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
-        <div class="item"><img src="items/products/cut_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
-        <div class="item"><img src="items/products/cut_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
-        <div class="item"><img src="items/products/cut_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
+        <div class="item"><img src="items/products/illus_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
+        <div class="item"><img src="items/products/illus_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
+        <div class="item"><img src="items/products/illus_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
+        <div class="item"><img src="items/products/illus_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
+        <div class="item"><img src="items/products/illus_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
+        <div class="item"><img src="items/products/illus_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
+        <div class="item"><img src="items/products/illus_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
     </div>
     <div class="ftr">HEYCHE.CA · @HEYCHECA</div>
 </div></div>
@@ -313,17 +379,41 @@ body {
         <div class="sub">Vietnamese Dessert Drinks</div>
     </div>
     <div class="grid">
-        <div class="item"><img src="items/products/cut_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
-        <div class="item"><img src="items/products/cut_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
-        <div class="item"><img src="items/products/cut_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
-        <div class="item"><img src="items/products/cut_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
-        <div class="item"><img src="items/products/cut_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
-        <div class="item"><img src="items/products/cut_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
-        <div class="item"><img src="items/products/cut_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
-        <div class="item"><img src="items/products/cut_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
+        <div class="item"><img src="items/products/illus_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
+        <div class="item"><img src="items/products/illus_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
+        <div class="item"><img src="items/products/illus_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
+        <div class="item"><img src="items/products/illus_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
+        <div class="item"><img src="items/products/illus_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
+        <div class="item"><img src="items/products/illus_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
+        <div class="item"><img src="items/products/illus_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
     </div>
     <div class="ftr">HEYCHE.CA · @HEYCHECA</div>
+</div></div>
+</div>
+
+<!-- === ELEGANT MINIMAL === -->
+<div id="e">
+<div class="monitor-label">Style E — Elegant Minimal</div>
+<div class="monitor-frame"><div class="s-minimal">
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+        <div class="sub">vietnamese dessert drinks</div>
+        <div class="line"></div>
+    </div>
+    <div class="grid">
+        <div class="item"><img src="items/products/illus_everything_che.png"><div class="nm">Everything Chè</div><div class="vn">Chè Thập Cẩm</div></div>
+        <div class="item"><img src="items/products/illus_fresh_che.png"><div class="nm">The Fresh Chè</div><div class="vn">Chè Trái Cây</div></div>
+        <div class="item"><img src="items/products/illus_house_special.png"><div class="nm">House Special</div><div class="vn">Chè Đặc Biệt</div></div>
+        <div class="item"><img src="items/products/illus_three_layer.png"><div class="nm">The 3-Layer Chè</div><div class="vn">Chè Ba Màu</div></div>
+        <div class="item"><img src="items/products/illus_go_to.png"><div class="nm">The Go-To</div><div class="vn">Sương Sáo Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_mango_coco.png"><div class="nm">Mango Coco</div><div class="vn">Chè Xoài Cốt Dừa</div></div>
+        <div class="item"><img src="items/products/illus_ube_coco.png"><div class="nm">Ube Coco</div><div class="vn">Chè Khoai Lang Tím</div></div>
+        <div class="item"><img src="items/products/illus_fresh_taro.png"><div class="nm">Fresh Taro Coco</div><div class="vn">Chè Khoai Môn Bánh Lọt</div></div>
+        <div class="item"><img src="items/products/illus_not_too_sweet.png"><div class="nm">Not Too Sweet</div><div class="vn">Chè Sương Sáo Hạt Lựu</div></div>
+    </div>
+    <div class="ftr">heyche.ca · @heycheca</div>
 </div></div>
 </div>
 
