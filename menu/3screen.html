@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chè — 3-Screen Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Inter', sans-serif;
+    background: #111;
+    min-height: 100vh;
+}
+
+/* === NAV === */
+.style-nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(17,17,17,0.95);
+    backdrop-filter: blur(10px);
+    display: flex; justify-content: center; gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.style-nav a {
+    color: #888; text-decoration: none; font-size: 13px; font-weight: 500;
+    padding: 6px 18px; border-radius: 20px; transition: all 0.3s;
+    letter-spacing: 0.5px;
+}
+.style-nav a:hover { color: #ccc; }
+.style-nav a.active { color: #fff; background: rgba(122,0,0,0.7); }
+
+/* === LAYOUT === */
+.demo { display: none; padding: 70px 20px 40px; }
+.demo.active { display: block; }
+.demo-label {
+    color: #666; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 3px; text-align: center; margin-bottom: 16px;
+}
+.screens-row {
+    display: flex; justify-content: center; gap: 20px;
+    flex-wrap: wrap;
+}
+.screen-frame {
+    width: 540px; height: 960px;
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 2px rgba(255,255,255,0.04);
+    flex-shrink: 0;
+}
+
+/* ============================================ */
+/* STYLE A — WARM PARCHMENT                     */
+/* ============================================ */
+.pa { background: #f5efe0; height: 100%; display: flex; flex-direction: column; position: relative; }
+.pa::before {
+    content: ''; position: absolute; inset: 0;
+    border: 8px solid #5a0a14; border-radius: 4px; pointer-events: none; z-index: 2;
+}
+
+/* Header */
+.pa .hdr {
+    text-align: center; padding: 28px 20px 16px; position: relative; z-index: 1;
+}
+.pa .hdr .logo { height: 36px; margin-bottom: 4px; }
+.pa .hdr h2 {
+    font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
+    color: #5a0a14; letter-spacing: 1px; margin-bottom: 2px;
+}
+.pa .hdr .accent-line {
+    width: 60px; height: 2px; background: #5a0a14; margin: 8px auto 0; opacity: 0.4;
+}
+
+/* Menu items with illustrations */
+.pa .menu-list { flex: 1; padding: 8px 28px; display: flex; flex-direction: column; justify-content: space-evenly; }
+.pa .menu-item {
+    display: flex; align-items: center; gap: 16px; padding: 6px 0;
+    border-bottom: 1px solid rgba(90,10,20,0.08);
+}
+.pa .menu-item:last-child { border-bottom: none; }
+.pa .menu-item .illus {
+    width: 120px; height: 120px; object-fit: contain; flex-shrink: 0;
+}
+.pa .menu-item .info { flex: 1; }
+.pa .menu-item .name-row { display: flex; justify-content: space-between; align-items: baseline; }
+.pa .menu-item .nm {
+    font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700;
+    color: #3a1a0a; line-height: 1.3;
+}
+.pa .menu-item .price {
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 600;
+    color: #5a0a14; white-space: nowrap; margin-left: 8px;
+}
+.pa .menu-item .vn {
+    font-family: 'Cormorant Garamond', serif; font-size: 13px;
+    color: #7a0000; font-style: italic; margin: 1px 0 3px;
+}
+.pa .menu-item .desc {
+    font-family: 'Cormorant Garamond', serif; font-size: 12.5px;
+    color: #6b5a4a; line-height: 1.4; font-style: italic;
+}
+
+/* Section divider */
+.pa .section-hdr {
+    font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600;
+    color: #5a0a14; text-align: center; padding: 12px 0 4px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border-top: 1px solid rgba(90,10,20,0.12);
+}
+
+/* Toppings / extras list */
+.pa .extras { padding: 0 28px 16px; }
+.pa .extras-title {
+    font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600;
+    color: #5a0a14; text-align: center; padding: 10px 0 8px;
+    letter-spacing: 1px; text-transform: uppercase;
+    border-top: 1px solid rgba(90,10,20,0.12);
+}
+.pa .extra-row {
+    display: flex; justify-content: space-between; padding: 5px 0;
+    border-bottom: 1px dotted rgba(90,10,20,0.1);
+}
+.pa .extra-row .e-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 14px; color: #3a2a1a;
+}
+.pa .extra-row .e-price {
+    font-family: 'Cormorant Garamond', serif; font-size: 14px; color: #5a0a14; font-weight: 600;
+}
+
+/* Text-only menu list (for screen 3) */
+.pa .text-list { flex: 1; padding: 0 28px; display: flex; flex-direction: column; justify-content: flex-start; }
+.pa .text-section { margin-bottom: 8px; }
+.pa .text-section h3 {
+    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700;
+    color: #5a0a14; text-align: center; padding: 10px 0 6px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border-bottom: 2px solid rgba(90,10,20,0.15);
+    margin-bottom: 6px;
+}
+.pa .text-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 6px 0; border-bottom: 1px dotted rgba(90,10,20,0.08);
+}
+.pa .text-row .t-name {
+    font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: #3a1a0a;
+}
+.pa .text-row .t-vn {
+    font-family: 'Cormorant Garamond', serif; font-size: 12px; color: #7a0000; font-style: italic;
+}
+.pa .text-row .t-price {
+    font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600;
+    color: #5a0a14; white-space: nowrap;
+}
+
+/* Footer */
+.pa .ftr {
+    text-align: center; padding: 10px; position: relative; z-index: 1;
+    font-size: 9px; color: #a09080; letter-spacing: 2px; text-transform: uppercase;
+    border-top: 1px solid rgba(90,10,20,0.1);
+}
+
+/* ============================================ */
+/* STYLE B — COFFEE SHOP (BROWN)                */
+/* ============================================ */
+.cb { background: #f0ead8; height: 100%; display: flex; flex-direction: column; }
+
+.cb .hdr {
+    text-align: center; padding: 24px 20px 14px;
+    background: #3a2718;
+}
+.cb .hdr .logo { height: 34px; filter: brightness(0) invert(1); margin-bottom: 4px; }
+.cb .hdr h2 {
+    font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 700;
+    color: #f0ead8; letter-spacing: 2px; text-transform: uppercase;
+}
+.cb .hdr .tag {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 400;
+    color: #c4a86e; letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+/* Menu items */
+.cb .menu-list { flex: 1; padding: 10px 24px; display: flex; flex-direction: column; justify-content: space-evenly; }
+.cb .menu-item {
+    display: flex; align-items: center; gap: 14px; padding: 6px 0;
+    border-bottom: 1px solid rgba(58,39,24,0.08);
+}
+.cb .menu-item:last-child { border-bottom: none; }
+.cb .menu-item .illus {
+    width: 110px; height: 110px; object-fit: contain; flex-shrink: 0;
+}
+.cb .menu-item .info { flex: 1; }
+.cb .menu-item .name-row { display: flex; justify-content: space-between; align-items: baseline; }
+.cb .menu-item .nm {
+    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700;
+    color: #2a1a0a; text-transform: uppercase; line-height: 1.3;
+}
+.cb .menu-item .price {
+    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 700;
+    color: #3a2718; white-space: nowrap; margin-left: 8px;
+}
+.cb .menu-item .vn {
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 400;
+    color: #8b6e4e; font-style: italic; margin: 1px 0 3px;
+}
+.cb .menu-item .desc {
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 300;
+    color: #6b5a4a; line-height: 1.4;
+}
+
+/* Section headers */
+.cb .section-hdr {
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700;
+    color: #3a2718; text-align: center; padding: 10px 0 4px;
+    letter-spacing: 2px; text-transform: uppercase;
+    border-top: 2px solid #3a2718;
+}
+
+/* Extras */
+.cb .extras { padding: 0 24px 16px; }
+.cb .extras-title {
+    font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 700;
+    color: #3a2718; text-align: center; padding: 10px 0 6px;
+    letter-spacing: 2px; text-transform: uppercase;
+    border-top: 2px solid #3a2718;
+}
+.cb .extra-row {
+    display: flex; justify-content: space-between; padding: 5px 0;
+    border-bottom: 1px dotted rgba(58,39,24,0.15);
+}
+.cb .extra-row .e-name {
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #2a1a0a;
+}
+.cb .extra-row .e-price {
+    font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 700; color: #3a2718;
+}
+
+/* Text list for screen 3 */
+.cb .text-list { flex: 1; padding: 0 24px; }
+.cb .text-section { margin-bottom: 6px; }
+.cb .text-section h3 {
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+    color: #3a2718; text-align: center; padding: 10px 0 6px;
+    letter-spacing: 2px; text-transform: uppercase;
+    border-bottom: 2px solid #3a2718;
+    margin-bottom: 6px;
+}
+.cb .text-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 7px 0; border-bottom: 1px dotted rgba(58,39,24,0.12);
+}
+.cb .text-row .t-name {
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700; color: #2a1a0a;
+}
+.cb .text-row .t-vn {
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 400; color: #8b6e4e; font-style: italic;
+}
+.cb .text-row .t-price {
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+    color: #3a2718; white-space: nowrap;
+}
+
+.cb .ftr {
+    text-align: center; padding: 10px;
+    background: #3a2718;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px; color: #c4a86e; letter-spacing: 2px; text-transform: uppercase;
+}
+
+/* ============================================ */
+/* RESPONSIVE                                   */
+/* ============================================ */
+@media (max-width: 1700px) {
+    .screen-frame { width: 480px; height: 854px; }
+}
+@media (max-width: 1500px) {
+    .screen-frame { width: 420px; height: 747px; }
+    .pa .menu-item .illus, .cb .menu-item .illus { width: 90px; height: 90px; }
+    .pa .menu-item .nm, .cb .menu-item .nm { font-size: 14px; }
+}
+@media (max-width: 1300px) {
+    .screens-row { flex-direction: column; align-items: center; }
+    .screen-frame { width: 540px; height: 960px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="style-nav">
+    <a href="#" data-style="a" class="active">Warm Parchment</a>
+    <a href="#" data-style="b">Coffee Shop</a>
+</nav>
+
+<!-- ============================================ -->
+<!-- STYLE A: WARM PARCHMENT                      -->
+<!-- ============================================ -->
+<div class="demo active" id="demo-a">
+<div class="demo-label">Style A — Warm Parchment — 3 Screens</div>
+<div class="screens-row">
+
+<!-- SCREEN 1: Signature Desserts 1-5 -->
+<div class="screen-frame"><div class="pa">
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+        <h2>Our Signature Desserts</h2>
+        <div class="accent-line"></div>
+    </div>
+    <div class="menu-list">
+        <div class="menu-item">
+            <img src="items/products/illus_everything_che.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Everything Chè</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Thập Cẩm</div>
+                <div class="desc">A little bit of everything! Sweet beans, taro, and chewy jellies.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_fresh_che.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">The Fresh Chè</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Trái Cây</div>
+                <div class="desc">Fresh tropical fruits with chewy tapioca and coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_house_special.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">House Special</span><span class="price">$9.50</span></div>
+                <div class="vn">Chè Đặc Biệt</div>
+                <div class="desc">Our signature blend — the best of everything we offer.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_three_layer.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">The 3-Layer Chè</span><span class="price">$7.50</span></div>
+                <div class="vn">Chè Ba Màu</div>
+                <div class="desc">Icy layers of sweet bean paste, pandan jelly, and rich coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_go_to.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">The Go-To</span><span class="price">$7.50</span></div>
+                <div class="vn">Sương Sáo Bánh Lọt</div>
+                <div class="desc">Classic grass jelly with pandan jelly and sweet coconut milk.</div>
+            </div>
+        </div>
+    </div>
+    <div class="ftr">heyche.ca</div>
+</div></div>
+
+<!-- SCREEN 2: Signature Desserts 6-9 + Toppings -->
+<div class="screen-frame"><div class="pa">
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+        <h2>Signature Desserts</h2>
+        <div class="accent-line"></div>
+    </div>
+    <div class="menu-list" style="flex: none; padding-top: 12px; padding-bottom: 0;">
+        <div class="menu-item">
+            <img src="items/products/illus_mango_coco.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Mango Coco</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Xoài Cốt Dừa</div>
+                <div class="desc">Layers of mango, tropical fruit, boba, and ice cream in rich coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_ube_coco.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Ube Coco</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Khoai Lang Tím</div>
+                <div class="desc">Same same as the Mango Coco, but packed with rich, purple ube.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_fresh_taro.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Fresh Taro Coco</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Khoai Môn Bánh Lọt</div>
+                <div class="desc">Fresh taro with pandan jelly in creamy coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_not_too_sweet.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Not Too Sweet</span><span class="price">$7.50</span></div>
+                <div class="vn">Chè Sương Sáo Hạt Lựu</div>
+                <div class="desc">Light and refreshing with grass jelly and tapioca pearls.</div>
+            </div>
+        </div>
+    </div>
+    <div class="extras">
+        <div class="extras-title">Toppings &amp; Add-Ons</div>
+        <div class="extra-row"><span class="e-name">Extra Boba</span><span class="e-price">$1.00</span></div>
+        <div class="extra-row"><span class="e-name">Extra Coconut Milk</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Pandan Jelly</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Grass Jelly</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Sweet Beans</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Taro</span><span class="e-price">$1.00</span></div>
+        <div class="extra-row"><span class="e-name">Ice Cream Scoop</span><span class="e-price">$1.50</span></div>
+        <div class="extra-row"><span class="e-name">Coconut Ice Cream</span><span class="e-price">$1.50</span></div>
+    </div>
+    <div class="ftr">@heycheca</div>
+</div></div>
+
+<!-- SCREEN 3: Coffee & Snacks -->
+<div class="screen-frame"><div class="pa">
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+        <h2>Coffee &amp; Snacks</h2>
+        <div class="accent-line"></div>
+    </div>
+    <div class="text-list">
+        <div class="text-section">
+            <h3>Drinks</h3>
+            <div class="text-row"><div><span class="t-name">Vietnamese Coffee</span><br><span class="t-vn">Cà Phê Sữa Đá</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Espresso</span></div><span class="t-price">$3.50</span></div>
+            <div class="text-row"><div><span class="t-name">Latte</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Matcha Latte</span><br><span class="t-vn">Trà Xanh Latte</span></div><span class="t-price">$6.00</span></div>
+            <div class="text-row"><div><span class="t-name">Thai Iced Tea</span><br><span class="t-vn">Trà Thái</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Fresh Coconut Water</span><br><span class="t-vn">Nước Dừa Tươi</span></div><span class="t-price">$5.00</span></div>
+            <div class="text-row"><div><span class="t-name">Taro Smoothie</span></div><span class="t-price">$6.50</span></div>
+            <div class="text-row"><div><span class="t-name">Mango Smoothie</span></div><span class="t-price">$6.50</span></div>
+        </div>
+        <div class="text-section">
+            <h3>Snacks</h3>
+            <div class="text-row"><div><span class="t-name">Bánh Mì</span><br><span class="t-vn">Vietnamese Baguette Sandwich</span></div><span class="t-price">$8.50</span></div>
+            <div class="text-row"><div><span class="t-name">Chả Giò</span><br><span class="t-vn">Vietnamese Spring Rolls (4 pcs)</span></div><span class="t-price">$7.00</span></div>
+            <div class="text-row"><div><span class="t-name">Gỏi Cuốn</span><br><span class="t-vn">Fresh Spring Rolls (2 pcs)</span></div><span class="t-price">$6.00</span></div>
+            <div class="text-row"><div><span class="t-name">Bánh Bao</span><br><span class="t-vn">Steamed Pork Bun (1 pc)</span></div><span class="t-price">$4.50</span></div>
+        </div>
+    </div>
+    <div class="ftr">heyche.ca · @heycheca</div>
+</div></div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- STYLE B: COFFEE SHOP                         -->
+<!-- ============================================ -->
+<div class="demo" id="demo-b">
+<div class="demo-label">Style B — Coffee Shop — 3 Screens</div>
+<div class="screens-row">
+
+<!-- SCREEN 1 -->
+<div class="screen-frame"><div class="cb">
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+        <h2>Our Signature Desserts</h2>
+        <div class="tag">Vietnamese Dessert Drinks</div>
+    </div>
+    <div class="menu-list">
+        <div class="menu-item">
+            <img src="items/products/illus_everything_che.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Everything Chè</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Thập Cẩm</div>
+                <div class="desc">A little bit of everything! Sweet beans, taro, and chewy jellies.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_fresh_che.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">The Fresh Chè</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Trái Cây</div>
+                <div class="desc">Fresh tropical fruits with chewy tapioca and coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_house_special.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">House Special</span><span class="price">$9.50</span></div>
+                <div class="vn">Chè Đặc Biệt</div>
+                <div class="desc">Our signature blend — the best of everything we offer.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_three_layer.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">The 3-Layer Chè</span><span class="price">$7.50</span></div>
+                <div class="vn">Chè Ba Màu</div>
+                <div class="desc">Icy layers of sweet bean paste, pandan jelly, and rich coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_go_to.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">The Go-To</span><span class="price">$7.50</span></div>
+                <div class="vn">Sương Sáo Bánh Lọt</div>
+                <div class="desc">Classic grass jelly with pandan jelly and sweet coconut milk.</div>
+            </div>
+        </div>
+    </div>
+    <div class="ftr">heyche.ca</div>
+</div></div>
+
+<!-- SCREEN 2 -->
+<div class="screen-frame"><div class="cb">
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+        <h2>Signature Desserts</h2>
+        <div class="tag">Vietnamese Dessert Drinks</div>
+    </div>
+    <div class="menu-list" style="flex: none; padding-top: 12px; padding-bottom: 0;">
+        <div class="menu-item">
+            <img src="items/products/illus_mango_coco.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Mango Coco</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Xoài Cốt Dừa</div>
+                <div class="desc">Layers of mango, tropical fruit, boba, and ice cream in rich coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_ube_coco.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Ube Coco</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Khoai Lang Tím</div>
+                <div class="desc">Same same as the Mango Coco, but packed with rich, purple ube.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_fresh_taro.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Fresh Taro Coco</span><span class="price">$8.50</span></div>
+                <div class="vn">Chè Khoai Môn Bánh Lọt</div>
+                <div class="desc">Fresh taro with pandan jelly in creamy coconut milk.</div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <img src="items/products/illus_not_too_sweet.png" class="illus" alt="">
+            <div class="info">
+                <div class="name-row"><span class="nm">Not Too Sweet</span><span class="price">$7.50</span></div>
+                <div class="vn">Chè Sương Sáo Hạt Lựu</div>
+                <div class="desc">Light and refreshing with grass jelly and tapioca pearls.</div>
+            </div>
+        </div>
+    </div>
+    <div class="extras">
+        <div class="extras-title">Toppings &amp; Add-Ons</div>
+        <div class="extra-row"><span class="e-name">Extra Boba</span><span class="e-price">$1.00</span></div>
+        <div class="extra-row"><span class="e-name">Extra Coconut Milk</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Pandan Jelly</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Grass Jelly</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Sweet Beans</span><span class="e-price">$0.75</span></div>
+        <div class="extra-row"><span class="e-name">Taro</span><span class="e-price">$1.00</span></div>
+        <div class="extra-row"><span class="e-name">Ice Cream Scoop</span><span class="e-price">$1.50</span></div>
+        <div class="extra-row"><span class="e-name">Coconut Ice Cream</span><span class="e-price">$1.50</span></div>
+    </div>
+    <div class="ftr">@heycheca</div>
+</div></div>
+
+<!-- SCREEN 3 -->
+<div class="screen-frame"><div class="cb">
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+        <h2>Coffee &amp; Snacks</h2>
+        <div class="tag">Fresh &amp; Delicious</div>
+    </div>
+    <div class="text-list">
+        <div class="text-section">
+            <h3>Drinks</h3>
+            <div class="text-row"><div><span class="t-name">Vietnamese Coffee</span><br><span class="t-vn">Cà Phê Sữa Đá</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Espresso</span></div><span class="t-price">$3.50</span></div>
+            <div class="text-row"><div><span class="t-name">Latte</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Matcha Latte</span><br><span class="t-vn">Trà Xanh Latte</span></div><span class="t-price">$6.00</span></div>
+            <div class="text-row"><div><span class="t-name">Thai Iced Tea</span><br><span class="t-vn">Trà Thái</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Fresh Coconut Water</span><br><span class="t-vn">Nước Dừa Tươi</span></div><span class="t-price">$5.00</span></div>
+            <div class="text-row"><div><span class="t-name">Taro Smoothie</span></div><span class="t-price">$6.50</span></div>
+            <div class="text-row"><div><span class="t-name">Mango Smoothie</span></div><span class="t-price">$6.50</span></div>
+        </div>
+        <div class="text-section">
+            <h3>Snacks</h3>
+            <div class="text-row"><div><span class="t-name">Bánh Mì</span><br><span class="t-vn">Vietnamese Baguette Sandwich</span></div><span class="t-price">$8.50</span></div>
+            <div class="text-row"><div><span class="t-name">Chả Giò</span><br><span class="t-vn">Vietnamese Spring Rolls (4 pcs)</span></div><span class="t-price">$7.00</span></div>
+            <div class="text-row"><div><span class="t-name">Gỏi Cuốn</span><br><span class="t-vn">Fresh Spring Rolls (2 pcs)</span></div><span class="t-price">$6.00</span></div>
+            <div class="text-row"><div><span class="t-name">Bánh Bao</span><br><span class="t-vn">Steamed Pork Bun (1 pc)</span></div><span class="t-price">$4.50</span></div>
+        </div>
+    </div>
+    <div class="ftr">heyche.ca · @heycheca</div>
+</div></div>
+
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.style-nav a').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelectorAll('.style-nav a').forEach(x => x.classList.remove('active'));
+        a.classList.add('active');
+        document.querySelectorAll('.demo').forEach(d => d.classList.remove('active'));
+        document.getElementById('demo-' + a.dataset.style).classList.add('active');
+    });
+});
+</script>
+</body>
+</html>
