@@ -267,19 +267,134 @@ body {
 }
 
 /* ============================================ */
+/* STYLE C — ZIGZAG EDITORIAL                   */
+/* ============================================ */
+.zz {
+    background: #f5efe0; height: 100%; display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+}
+.zz::before {
+    content: ''; position: absolute; inset: 0;
+    border: 10px solid #5a0a14; pointer-events: none; z-index: 2;
+}
+
+/* Vertical side label */
+.zz .side-label {
+    position: absolute; left: -18px; top: 50%; z-index: 1;
+    transform: translateY(-50%) rotate(-90deg);
+    font-family: 'Playfair Display', serif; font-size: 82px; font-weight: 700;
+    color: #5a0a14; letter-spacing: 4px; white-space: nowrap;
+    transform-origin: center center;
+    opacity: 0.12;
+}
+
+/* Header */
+.zz .hdr {
+    text-align: center; padding: 24px 20px 10px; position: relative; z-index: 3;
+}
+.zz .hdr .logo { height: 40px; }
+
+/* Zigzag items */
+.zz .zz-list {
+    flex: 1; padding: 0 30px; display: flex; flex-direction: column;
+    justify-content: space-evenly; position: relative; z-index: 1;
+}
+.zz .zz-item {
+    display: flex; align-items: center; gap: 16px;
+}
+.zz .zz-item.flip { flex-direction: row-reverse; }
+
+.zz .zz-item .illus {
+    width: 180px; height: 180px; object-fit: contain; flex-shrink: 0;
+}
+.zz .zz-item .info { flex: 1; }
+.zz .zz-item .nm {
+    font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
+    color: #5a0a14; line-height: 1.3; margin-bottom: 4px;
+}
+.zz .zz-item .desc {
+    font-family: 'Cormorant Garamond', serif; font-size: 14px;
+    color: #7a6a5a; line-height: 1.5; font-style: italic;
+}
+.zz .zz-item .price {
+    font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600;
+    color: #5a0a14; margin-top: 4px;
+}
+
+/* Screen 3 text-only for zigzag style */
+.zz .text-list { flex: 1; padding: 0 30px; display: flex; flex-direction: column; justify-content: flex-start; position: relative; z-index: 1; }
+.zz .text-section { margin-bottom: 8px; }
+.zz .text-section h3 {
+    font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 700;
+    color: #5a0a14; text-align: center; padding: 10px 0 6px;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    border-bottom: 2px solid rgba(90,10,20,0.15); margin-bottom: 6px;
+}
+.zz .text-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 7px 0; border-bottom: 1px dotted rgba(90,10,20,0.1);
+}
+.zz .text-row .t-name {
+    font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: #3a1a0a;
+}
+.zz .text-row .t-vn {
+    font-family: 'Cormorant Garamond', serif; font-size: 12px; color: #7a0000; font-style: italic;
+}
+.zz .text-row .t-price {
+    font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600;
+    color: #5a0a14; white-space: nowrap;
+}
+
+/* Extras for zigzag */
+.zz .extras { padding: 0 30px 16px; position: relative; z-index: 1; }
+.zz .extras-title {
+    font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600;
+    color: #5a0a14; text-align: center; padding: 10px 0 8px;
+    letter-spacing: 1px; text-transform: uppercase;
+    border-top: 1px solid rgba(90,10,20,0.12);
+}
+.zz .extra-row {
+    display: flex; justify-content: space-between; padding: 5px 0;
+    border-bottom: 1px dotted rgba(90,10,20,0.1);
+}
+.zz .extra-row .e-name {
+    font-family: 'Cormorant Garamond', serif; font-size: 14px; color: #3a2a1a;
+}
+.zz .extra-row .e-price {
+    font-family: 'Cormorant Garamond', serif; font-size: 14px; color: #5a0a14; font-weight: 600;
+}
+
+.zz .ftr {
+    text-align: center; padding: 10px; position: relative; z-index: 3;
+    font-size: 9px; color: #a09080; letter-spacing: 2px; text-transform: uppercase;
+    border-top: 1px solid rgba(90,10,20,0.1);
+}
+.zz .zz-list.compact .zz-item .illus { width: 140px; height: 140px; }
+.zz .zz-list.compact .zz-item .nm { font-size: 18px; }
+.zz .zz-list.compact .zz-item .desc { font-size: 13px; }
+
+/* ============================================ */
 /* RESPONSIVE                                   */
 /* ============================================ */
 @media (max-width: 1700px) {
     .screen-frame { width: 480px; height: 854px; }
+    .zz .zz-item .illus { width: 150px; height: 150px; }
+    .zz .side-label { font-size: 68px; }
 }
 @media (max-width: 1500px) {
     .screen-frame { width: 420px; height: 747px; }
     .pa .menu-item .illus, .cb .menu-item .illus { width: 90px; height: 90px; }
     .pa .menu-item .nm, .cb .menu-item .nm { font-size: 14px; }
+    .zz .zz-item .illus { width: 120px; height: 120px; }
+    .zz .zz-item .nm { font-size: 17px; }
+    .zz .zz-item .desc { font-size: 12px; }
+    .zz .side-label { font-size: 56px; left: -14px; }
 }
 @media (max-width: 1300px) {
     .screens-row { flex-direction: column; align-items: center; }
     .screen-frame { width: 540px; height: 960px; }
+    .zz .zz-item .illus { width: 180px; height: 180px; }
+    .zz .side-label { font-size: 82px; left: -18px; }
 }
 </style>
 </head>
@@ -288,6 +403,7 @@ body {
 <nav class="style-nav">
     <a href="#" data-style="a" class="active">Warm Parchment</a>
     <a href="#" data-style="b">Coffee Shop</a>
+    <a href="#" data-style="c">Zigzag Editorial</a>
 </nav>
 
 <!-- ============================================ -->
@@ -557,6 +673,139 @@ body {
         <img src="items/che-logo.svg" class="logo" alt="Chè">
         <h2>Coffee &amp; Snacks</h2>
         <div class="tag">Fresh &amp; Delicious</div>
+    </div>
+    <div class="text-list">
+        <div class="text-section">
+            <h3>Drinks</h3>
+            <div class="text-row"><div><span class="t-name">Vietnamese Coffee</span><br><span class="t-vn">Cà Phê Sữa Đá</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Espresso</span></div><span class="t-price">$3.50</span></div>
+            <div class="text-row"><div><span class="t-name">Latte</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Matcha Latte</span><br><span class="t-vn">Trà Xanh Latte</span></div><span class="t-price">$6.00</span></div>
+            <div class="text-row"><div><span class="t-name">Thai Iced Tea</span><br><span class="t-vn">Trà Thái</span></div><span class="t-price">$5.50</span></div>
+            <div class="text-row"><div><span class="t-name">Fresh Coconut Water</span><br><span class="t-vn">Nước Dừa Tươi</span></div><span class="t-price">$5.00</span></div>
+            <div class="text-row"><div><span class="t-name">Taro Smoothie</span></div><span class="t-price">$6.50</span></div>
+            <div class="text-row"><div><span class="t-name">Mango Smoothie</span></div><span class="t-price">$6.50</span></div>
+        </div>
+        <div class="text-section">
+            <h3>Snacks</h3>
+            <div class="text-row"><div><span class="t-name">Bánh Mì</span><br><span class="t-vn">Vietnamese Baguette Sandwich</span></div><span class="t-price">$8.50</span></div>
+            <div class="text-row"><div><span class="t-name">Chả Giò</span><br><span class="t-vn">Vietnamese Spring Rolls (4 pcs)</span></div><span class="t-price">$7.00</span></div>
+            <div class="text-row"><div><span class="t-name">Gỏi Cuốn</span><br><span class="t-vn">Fresh Spring Rolls (2 pcs)</span></div><span class="t-price">$6.00</span></div>
+            <div class="text-row"><div><span class="t-name">Bánh Bao</span><br><span class="t-vn">Steamed Pork Bun (1 pc)</span></div><span class="t-price">$4.50</span></div>
+        </div>
+    </div>
+    <div class="ftr">heyche.ca · @heycheca</div>
+</div></div>
+
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- STYLE C: ZIGZAG EDITORIAL                    -->
+<!-- ============================================ -->
+<div class="demo" id="demo-c">
+<div class="demo-label">Style C — Zigzag Editorial — 3 Screens</div>
+<div class="screens-row">
+
+<!-- SCREEN 1: Signature Desserts 1-5 -->
+<div class="screen-frame"><div class="zz">
+    <div class="side-label">Desserts</div>
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+    </div>
+    <div class="zz-list">
+        <div class="zz-item">
+            <img src="items/products/illus_everything_che.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">Everything chè</div>
+                <div class="desc">A little bit of everything! Sweet beans, taro, and chewy jellies.</div>
+                <div class="price">$8.50</div>
+            </div>
+        </div>
+        <div class="zz-item flip">
+            <img src="items/products/illus_fresh_che.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">The Fresh chè</div>
+                <div class="desc">Fresh tropical fruits with chewy tapioca and coconut milk.</div>
+                <div class="price">$8.50</div>
+            </div>
+        </div>
+        <div class="zz-item">
+            <img src="items/products/illus_house_special.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">House Special</div>
+                <div class="desc">Our signature blend — the best of everything we offer.</div>
+                <div class="price">$9.50</div>
+            </div>
+        </div>
+        <div class="zz-item flip">
+            <img src="items/products/illus_mango_coco.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">Mango coco</div>
+                <div class="desc">Layers of mango, tropical fruit, boba, and ice cream in rich coconut milk.</div>
+                <div class="price">$8.50</div>
+            </div>
+        </div>
+    </div>
+    <div class="ftr">heyche.ca</div>
+</div></div>
+
+<!-- SCREEN 2: Signature Desserts 5-9 + Toppings -->
+<div class="screen-frame"><div class="zz">
+    <div class="side-label">Desserts</div>
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
+    </div>
+    <div class="zz-list compact">
+        <div class="zz-item">
+            <img src="items/products/illus_three_layer.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">The 3-layer chè</div>
+                <div class="desc">Icy layers of sweet bean paste, pandan jelly, and rich coconut milk.</div>
+                <div class="price">$7.50</div>
+            </div>
+        </div>
+        <div class="zz-item flip">
+            <img src="items/products/illus_ube_coco.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">Ube coco</div>
+                <div class="desc">Same same as the Mango Coco, but packed with rich, purple ube.</div>
+                <div class="price">$8.50</div>
+            </div>
+        </div>
+        <div class="zz-item">
+            <img src="items/products/illus_go_to.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">The Go-To</div>
+                <div class="desc">Classic grass jelly with pandan jelly and sweet coconut milk.</div>
+                <div class="price">$7.50</div>
+            </div>
+        </div>
+        <div class="zz-item flip">
+            <img src="items/products/illus_fresh_taro.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">Fresh Taro coco</div>
+                <div class="desc">Fresh taro with pandan jelly in creamy coconut milk.</div>
+                <div class="price">$8.50</div>
+            </div>
+        </div>
+        <div class="zz-item">
+            <img src="items/products/illus_not_too_sweet.png" class="illus" alt="">
+            <div class="info">
+                <div class="nm">Not Too Sweet</div>
+                <div class="desc">Light and refreshing with grass jelly and tapioca pearls.</div>
+                <div class="price">$7.50</div>
+            </div>
+        </div>
+    </div>
+    <div class="ftr">@heycheca</div>
+</div></div>
+
+<!-- SCREEN 3: Coffee & Snacks -->
+<div class="screen-frame"><div class="zz">
+    <div class="side-label">More</div>
+    <div class="hdr">
+        <img src="items/che-logo.svg" class="logo" alt="Chè">
     </div>
     <div class="text-list">
         <div class="text-section">
