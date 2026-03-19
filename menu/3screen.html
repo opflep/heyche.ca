@@ -605,12 +605,12 @@ body {
 
 /* Vertical side label — solid large text */
 .pf .side-label {
-    position: absolute; left: 12px; bottom: 30px; z-index: 1;
+    position: absolute; left: 8px; bottom: 30px; z-index: 1;
     writing-mode: vertical-rl; text-orientation: mixed;
     transform: rotate(180deg);
-    font-family: 'Playfair Display', serif; font-size: 110px; font-weight: 700;
+    font-family: 'Playfair Display', serif; font-size: 90px; font-weight: 700;
     color: #5a0a14; letter-spacing: 2px; white-space: nowrap;
-    line-height: 1; opacity: 1;
+    line-height: 1; opacity: 0.12;
 }
 
 /* Header */
@@ -621,7 +621,7 @@ body {
 
 /* Zigzag dessert items — NO prices (per Canva) */
 .pf .zz-list {
-    flex: 1; padding: 10px 30px 0 90px; display: flex; flex-direction: column;
+    flex: 1; padding: 10px 30px 0 30px; display: flex; flex-direction: column;
     justify-content: space-around; position: relative; z-index: 1;
 }
 .pf .zz-item {
@@ -646,22 +646,23 @@ body {
 
 /* === MAGAZINE 2-COL COFFEE SCREEN === */
 .pf .mag-body {
-    flex: 1; padding: 0 28px; display: flex; flex-direction: column;
-    justify-content: flex-start; gap: 0; position: relative; z-index: 1;
+    flex: 1; padding: 0 24px 0 28px; display: flex; flex-direction: column;
+    justify-content: space-evenly; gap: 0; position: relative; z-index: 1;
     overflow: hidden;
 }
 .pf .mag-section {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-    align-items: start; margin-bottom: 4px;
+    display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 0;
+    align-items: start;
 }
+.pf .mag-section.flip { grid-template-columns: 0.8fr 1.2fr; }
 .pf .mag-section.flip .mag-text { order: 2; }
 .pf .mag-section.flip .mag-deco { order: 1; }
 .pf .mag-text { padding: 4px 0; }
-.pf .mag-deco { display: flex; align-items: center; justify-content: center; padding: 10px; }
-.pf .mag-deco svg { width: 140px; height: 140px; opacity: 1; }
+.pf .mag-deco { display: flex; align-items: center; justify-content: center; padding: 8px; }
+.pf .mag-deco svg { width: 120px; height: 120px; opacity: 0.85; }
 .pf .sec-title {
-    font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 400;
-    color: #5a0a14; margin-bottom: 10px; letter-spacing: 0; line-height: 1;
+    font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 400;
+    color: #5a0a14; margin-bottom: 6px; letter-spacing: 0; line-height: 1;
 }
 .pf .menu-row {
     display: flex; justify-content: space-between; align-items: baseline; padding: 5px 0;
@@ -691,6 +692,8 @@ body {
     .screen-frame { width: 480px; height: 854px; }
     .zz .zz-item .illus, .pf .zz-item .illus { width: 150px; height: 150px; }
     .zz .side-label, .pf .side-label { font-size: 68px; }
+    .pf .mag-deco svg { width: 100px; height: 100px; }
+    .pf .sec-title { font-size: 28px; }
 }
 @media (max-width: 1500px) {
     .screen-frame { width: 420px; height: 747px; }
@@ -700,15 +703,18 @@ body {
     .zz .zz-item .nm, .pf .zz-item .nm { font-size: 17px; }
     .zz .zz-item .desc, .pf .zz-item .desc { font-size: 12px; }
     .zz .side-label, .pf .side-label { font-size: 56px; left: -14px; }
-    .pf .sec-title { font-size: 32px; }
-    .pf .mag-deco svg { width: 110px; height: 110px; }
+    .pf .sec-title { font-size: 24px; }
+    .pf .mag-deco svg { width: 90px; height: 90px; }
+    .pf .menu-row .r-name, .pf .menu-row .r-price { font-size: 12px; }
 }
 @media (max-width: 1300px) {
     .screens-row { flex-direction: column; align-items: center; }
     .screen-frame { width: 540px; height: 960px; }
     .zz .zz-item .illus, .pf .zz-item .illus { width: 180px; height: 180px; }
     .zz .side-label { font-size: 82px; left: -18px; }
-    .pf .side-label { font-size: 110px; left: 12px; }
+    .pf .side-label { font-size: 90px; left: 8px; }
+    .pf .sec-title { font-size: 34px; }
+    .pf .mag-deco svg { width: 120px; height: 120px; }
 }
 </style>
 </head>
